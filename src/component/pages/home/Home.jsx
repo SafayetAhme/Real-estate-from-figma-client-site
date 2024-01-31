@@ -1,6 +1,7 @@
 import AgentSection from "./AgentSection"
 import AnySection from "./AnySection"
 import CliFdBkSection from "./CliFdBkSection"
+import FeedbackSection from "./FeedbackSection"
 import GetQuickSection from "./GetQuickSection"
 import Hero from "./Hero"
 import NewList from "./NewList"
@@ -20,6 +21,7 @@ const Home = () => {
             <PopularLocation></PopularLocation>
             <NewList></NewList>
             <AgentSection></AgentSection>
+            <FeedbackSection></FeedbackSection>
             <GetQuickSection></GetQuickSection>
             <Werhere></Werhere>
             <AnySection></AnySection>

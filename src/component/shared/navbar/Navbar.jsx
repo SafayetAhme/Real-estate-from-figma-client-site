@@ -67,13 +67,13 @@ const Navbar = () => {
                             </li>
                             <li className="nav-item">
                                 <NavLink
-                                    to="/Pricing"
+                                    to="/Agency"
                                     className={({ isActive }) =>
                                         "nav-links" + (isActive ? " activated" : "")
                                     }
                                     onClick={closeMobileMenu}
                                 >
-                                    <p className='font-medium text-lg'>Pricing</p>
+                                    <p className='font-medium text-lg'>Agency</p>
                                 </NavLink>
                             </li>
                             <li className="nav-item">
@@ -95,7 +95,8 @@ const Navbar = () => {
                                                         <ul className=" rounded-t-none">
                                                             <li><NavLink to="/Agent">Agent</NavLink></li>
                                                             <li><NavLink to="/Blog">Blog</NavLink></li>
-                                                            <li><NavLink to="/Agency">Agency</NavLink></li>
+                                                            <li><NavLink to="/Pricing">Pricing</NavLink></li>
+                                                            <li><NavLink to="/Contact">Contact</NavLink></li>
                                                         </ul>
                                                     </details>
                                                 </li>

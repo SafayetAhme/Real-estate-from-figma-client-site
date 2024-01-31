@@ -11,6 +11,8 @@ import Router from './component/rout/Router.jsx';
 import Home from './component/pages/home/Home.jsx';
 import Services from './component/pages/services/Services.jsx';
 import Property from './component/pages/property/Property.jsx';
+import ContactUs from './component/pages/contact us/ContactUs.jsx';
+import Agency from './component/pages/agency/Agency.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "/Property",
         element: <Property></Property>
+      },
+      {
+        path: "/Contact",
+        element: <ContactUs></ContactUs>
+      },
+      {
+        path: "/Agency", 
+        element: <Agency></Agency>
       }
     ]
   },

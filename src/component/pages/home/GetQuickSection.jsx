@@ -17,11 +17,13 @@ const GetQuickSection = () => {
                     <p className='text-lg pt-[70px] font-normal'>Master your property's valuation for a poised entry <br /> into the real estate market, armed with self- <br /> assurance and insight.</p>
                 </div>
                 <form className='pt-10'>
-                    <div className="relative">
-                        <input type="search" className=" lg:w-[500px] p-4 ps-4 text-sm border-[1px] border-gray-800  rounded-lg " placeholder="Your Email Address..." required />
-                        <button type="submit" className="text-white absolute end-2.5 bottom-2 bg-[#FF6625]   font-medium rounded-md text-sm px-6 py-2.5 mr-[84px]">Find out</button>
-                    </div>
-                    <p className='pt-1 text-gray-500'>*For accurate info please contact us.</p>
+                    <form>
+                        <div class="relative w-[430px]">
+                            <input type="search" id="search" class="block w-full outline-none p-4 border-black text-sm text-black border rounded-lg bg-gray-50" placeholder="Your Email Address..." required />
+                            <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-[#FF6625] font-medium rounded-lg text-sm px-4 py-2 ">Find out</button>
+                        </div>
+                    </form>
+                    <p className='pt-1 text-gray-500'>For more details please  <span className="underline text-black font-medium">contact us</span> </p>
                 </form>
             </div>
         </div>
