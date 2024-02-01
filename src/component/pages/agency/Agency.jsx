@@ -14,6 +14,13 @@ import fbthri from '../../../../public/image/fbthri.png'
 import fbforth from '../../../../public/image/fbforth.png'
 // import layot from '../../../../public/image/layot.png'
 import bgagent from '../../../../public/image/bgagent.png'
+import shotify from '../../../../public/image/shotify.png'
+import airbnb from '../../../../public/image/airbnb.png'
+import logitech from '../../../../public/image/logitech.png'
+import google from '../../../../public/image/google.png'
+import payoneet from '../../../../public/image/payoneet.png'
+import slack from '../../../../public/image/slack.png'
+import ex from '../../../../public/image/ex.png'
 
 
 let useClickOutside = (handler) => {
@@ -316,7 +323,7 @@ const Agency = () => {
 
             {/* Our agents */}
             <div className='container pt-24 mx-auto'>
-                <div className="flex px-24 justify-between items-center">
+                <div className="flex px-20 justify-between items-center">
                     <div className='text-[40px] font-bold font-poppins'>
                         <div class="font-poppins">Our Agents</div>
                         <img className='lg:w-44 md:w-40 w-0 ml-[80px] -mt-1' src={layot} alt="" />
@@ -330,7 +337,7 @@ const Agency = () => {
                 </div>
 
                 {/* card */}
-                <div className='px-20 pt-6'>
+                <div className='px-16 pt-6'>
                     <div>
                         <div className="container  h-20 mx-auto" style={{ backgroundImage: `url(${bgagent})` }}>
                         </div>
@@ -370,8 +377,37 @@ const Agency = () => {
             </div>
 
             {/* company section */}
-            <div>
-                
+            <div className='pt-20'>
+                <h1 className='text-xl font-poppins pb-4 text-center'>100+ Company trusted by us.</h1>
+                <div className='container mx-auto'>
+                    <div className='lg:flex justify-center gap-[92px] items-center'>
+                        <img className='w-[94px]' src={slack} alt="" />
+                        <img className='w-[94px]' src={google} alt="" />
+                        <img className='w-[124px] pb-3' src={payoneet} alt="" />
+                        <img className='w-[94px]' src={logitech} alt="" />
+                        <img className='w-[94px]' src={airbnb} alt="" />
+                        <img className='w-[94px]' src={shotify} alt="" />
+                    </div>
+                </div>
+            </div>
+
+            {/* start your jurney section */}
+            <div className='mt-24 mb-12 mx-auto overflow-y-scroll px-24 bg-cover bg-fixed bg-center bg-no-repeat ' style={{ backgroundImage: `url(${ex})` }}>
+                <div className='lg:flex container mx-auto justify-between items-center'>
+                    <div className=' pt-14 pb-28'>
+                        <div class="font-poppins text-white pt-2 leading-[64px] text-5xl">Start your Journey <br /> As a Realtor.</div>
+                        <img className='lg:w-44 md:w-40 w-0 ml-[256px] -mt-16' src={layot} alt="" />
+                    </div>
+                    <form className=''>
+                        <form>
+                            <div class="relative w-[380px]">
+                                <input type="search" id="search" class="block w-full outline-none p-4 text-sm text-black border rounded-lg bg-gray-50" placeholder="Email Address..." required />
+                                <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-[#FF6625] font-medium rounded-lg text-sm px-4 py-2 ">Get Started</button>
+                            </div>
+                        </form>
+                        <p className='text-white pt-1'>Already a Agent? <span className='text-[#FF6625] underline font-medium'> Sign in.</span> </p>
+                    </form>
+                </div>
             </div>
         </div>
     )
