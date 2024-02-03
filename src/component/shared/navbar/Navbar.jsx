@@ -10,6 +10,7 @@ import logo from '../../../../public/image/logo.png'
 const Navbar = () => {
 
     const user = false
+    const isadmin = true
 
     const [click, setClick] = useState(false);
 
@@ -32,6 +33,24 @@ const Navbar = () => {
                             {click ? <FaTimes /> : <FaBars />}
                         </div>
                         <ul className={click ? "nav-menu active" : "nav-menu"}>
+                            {
+                                isadmin ? <>
+                                    <li className="nav-item">
+                                        <NavLink
+                                            to="/adminDashboard"
+                                            className={({ isActive }) =>
+                                                "nav-links" + (isActive ? " activated" : "")
+                                            }
+                                            onClick={closeMobileMenu}
+                                        >
+                                            <p className='font-medium text-lg'>Dashboard</p>
+                                        </NavLink>
+                                    </li>
+                                </> :
+                                    <>
+                                        {/*  */}
+                                    </>
+                            }
                             <li className="nav-item">
                                 <NavLink
                                     to="/"
@@ -124,14 +143,16 @@ const Navbar = () => {
                                     <section className="flex items-center gap-4">
                                         {/* cart icon */}
                                         <div className="">
-                                            <button className="flex border-[1px] py-[9px] px-3 rounded-md text-[#FF6725] border-[#FF6725] items-center gap-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                    <path d="M12 16V14" stroke="#ff6725" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M5 15C5 11.134 8.13401 8 12 8C15.866 8 19 11.134 19 15C19 18.866 15.866 22 12 22C8.13401 22 5 18.866 5 15Z" stroke="#ff6725" stroke-width="1.5" />
-                                                    <path d="M16.5 9.5V6.5C16.5 4.01472 14.4853 2 12 2C9.51472 2 7.5 4.01472 7.5 6.5V9.5" stroke="#ff6725" stroke-width="1.5" stroke-linecap="round" />
-                                                </svg>
-                                                <p className="font-normal text-base">Login</p>
-                                            </button>
+                                            <NavLink to="/signin">
+                                                <button className="flex border-[1px] py-[9px] px-3 rounded-md text-[#FF6725] border-[#FF6725] items-center gap-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path d="M12 16V14" stroke="#ff6725" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                        <path d="M5 15C5 11.134 8.13401 8 12 8C15.866 8 19 11.134 19 15C19 18.866 15.866 22 12 22C8.13401 22 5 18.866 5 15Z" stroke="#ff6725" stroke-width="1.5" />
+                                                        <path d="M16.5 9.5V6.5C16.5 4.01472 14.4853 2 12 2C9.51472 2 7.5 4.01472 7.5 6.5V9.5" stroke="#ff6725" stroke-width="1.5" stroke-linecap="round" />
+                                                    </svg>
+                                                    <p className="font-normal text-base">Login</p>
+                                                </button>
+                                            </NavLink>
                                         </div>
                                         {/* avtar img */}
                                         <div className="">

@@ -18,6 +18,19 @@ import Blog from './component/pages/blog/Blog.jsx';
 import Pricing from './component/pages/pricing/Pricing.jsx';
 import FAQ from './component/pages/faq/FAQ.jsx';
 import Projects from './component/pages/projects/Projects.jsx';
+import SignIn from './component/pages/sign-in/SignIn.jsx';
+import SignUp from './component/pages/sign-up/SignUp.jsx';
+import Dashboard from './component/pages/admin-dashboard/Dashboard.jsx';
+import DashboardHome from './component/pages/admin-dashboard/DashboardHome.jsx';
+import Message from './component/pages/admin-dashboard/Message.jsx';
+import Profile from './component/pages/admin-dashboard/Profile.jsx';
+import AccountSetting from './component/pages/admin-dashboard/AccountSetting.jsx';
+import Membership from './component/pages/admin-dashboard/Membership.jsx';
+import MyProperties from './component/pages/admin-dashboard/MyProperties.jsx';
+import AddNewProperty from './component/pages/admin-dashboard/AddNewProperty.jsx';
+import Favourites from './component/pages/admin-dashboard/Favourites.jsx';
+import SavedSearch from './component/pages/admin-dashboard/SavedSearch.jsx';
+import Reviews from './component/pages/admin-dashboard/Reviews.jsx';
 
 const router = createBrowserRouter([
   {
@@ -63,9 +76,67 @@ const router = createBrowserRouter([
       {
         path: "/Projects",
         element: <Projects></Projects>
-      }
+      },
     ]
   },
+
+  // sign in and sign up page
+  {
+    path: "/signin",
+    element: <SignIn></SignIn>
+  },
+  {
+    path: "/signup",
+    element: <SignUp></SignUp>
+  },
+
+  {
+    path: "/adminDashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "dahsboardhome",
+        element: <DashboardHome></DashboardHome>
+      },
+      {
+        path: "Message",
+        element: <Message></Message>
+      },
+      {
+        path: "profile",
+        element: <Profile></Profile>
+      },
+      {
+        path: "AccountSetting",
+        element: <AccountSetting></AccountSetting>
+      },
+      {
+        path: "membership",
+        element: <Membership></Membership>
+      },
+      {
+        path: "myproperties",
+        element: <MyProperties></MyProperties>
+      },
+      {
+        path: "addnewProperty",
+        element: <AddNewProperty></AddNewProperty>
+      },
+      {
+        path: "favourites",
+        element: <Favourites></Favourites>
+      },
+      {
+        path: "savedSearch",
+        element: <SavedSearch></SavedSearch>
+      },
+      {
+        path: "reviews",
+        element: <Reviews></Reviews>
+      },
+    ]
+  },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -8,6 +8,7 @@ import StyJurny from '../../shared/start your jurny/StyJurny';
 
 
 const FAQ = () => {
+    
 
     return (
         <div>
