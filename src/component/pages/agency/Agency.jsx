@@ -131,7 +131,7 @@ const Agency = () => {
                                         className={`absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center`}
                                     >
                                         <a
-                                            href="/#"
+                                            href="#"
                                             onClick={() => setvideoOpen(true)}
                                             className="absolute z-20 flex h-20 w-20 items-center justify-center rounded-full bg-[#FF6625] text-primary dark:bg-dark-2 dark:text-white md:h-[100px] md:w-[100px]"
                                         >
