@@ -8,6 +8,7 @@ import { IoIosMenu } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa";
 import StyJurny from '../../shared/start your jurny/StyJurny';
 import UseMenus from '../../hooks/usemenus/UseMenus';
+import { Link } from 'react-router-dom';
 
 const MIN = 100;
 const MAX = 12000;
@@ -209,7 +210,7 @@ const Property = () => {
                 </div>
                 <div className='col-span-2 pl-12'>
                     <div className='flex justify-between items-center'>
-                        <h1 className='font-poppins'>Showing <span className='font-bold'>1-8</span> or <span className='font-bold'>1,230</span> results</h1>
+                        <h1 className='font-poppins'>Showing<span className='font-bold'>{menus?.length}</span></h1>
                         <div className='flex items-center gap-2'>
                             <h1>Sort by:</h1>
                             <div className='flex items-center gap-2'>
@@ -280,11 +281,14 @@ const Property = () => {
                                         </div>
                                         <div className='flex pt-2 justify-between items-center'>
                                             <h1 className='text-[28px] font-bold font-poppins'>${item?.price}</h1>
-                                            <div className='hover:bg-[#FF6B2C] bg-black p-2 rounded-full'>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                    <path d="M17 7L6 18" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
-                                                    <path d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>                             </div>
+                                            <Link to={`/menudetails/${item?._id}`}>
+                                                <div className='hover:bg-[#FF6B2C] bg-black p-2 rounded-full'>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path d="M17 7L6 18" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+                                                        <path d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </div>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

@@ -1,11 +1,16 @@
 import layot from '../../../../public/image/layot.png'
 import bgagent from '../../../../public/image/bgagent.png'
+import UseAgents from '../../hooks/use agents/UseAgents'
+import { Link } from 'react-router-dom';
 
 
 const AgentSection = () => {
+    const [agents] = UseAgents();
+    const populer = agents?.filter(agent => agent?.category === 'populer');
+
     return (
         <div className='container pt-24 mx-auto'>
-            <div className="flex px-24 justify-between items-center">
+            <div className="flex px-20 justify-between items-center">
                 <div className='text-[40px] font-bold font-poppins'>
                     <div class="font-poppins">Our Agents</div>
                     <img className='lg:w-44 md:w-40 w-0 ml-[80px] -mt-1' src={layot} alt="" />
@@ -19,39 +24,24 @@ const AgentSection = () => {
             </div>
 
             {/* card */}
-            <div className='px-20 pt-6'>
+            <div className='px-16 pt-6'>
                 <div>
                     <div className="container  h-20 mx-auto" style={{ backgroundImage: `url(${bgagent})` }}>
                     </div>
                     <div className='grid p-4 -mt-20 gap-5 lg:grid-cols-4 items-cente'>
-                        <div className=''>
-                            <div className=" text-center">
-                                <img className="rounded-t-lg rounded-xl h-[270px]" src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg" alt="" />
-                                <h1 className='text-xl font-medium pt-3'>Safayet Ahmed</h1>
-                                <h1 className='text-lg font-normal text-gray-400 pt-0'>Safayet Ahmed</h1>
-                            </div>
-                        </div>
-                        <div className=''>
-                            <div className="relative text-center overflow-hidden bg-cover bg-no-repeat">
-                                <img className="rounded-t-lg rounded-xl h-[270px]" src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg" alt="" />
-                                <h1 className='text-xl font-medium pt-3'>Safayet Ahmed</h1>
-                                <h1 className='text-lg font-normal text-gray-400 pt-0'>Safayet Ahmed</h1>
-                            </div>
-                        </div>
-                        <div className=''>
-                            <div className="relative text-center overflow-hidden bg-cover bg-no-repeat">
-                                <img className="rounded-t-lg rounded-xl h-[270px]" src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg" alt="" />
-                                <h1 className='text-xl font-medium pt-3'>Safayet Ahmed</h1>
-                                <h1 className='text-lg font-normal text-gray-400 pt-0'>Safayet Ahmed</h1>
-                            </div>
-                        </div>
-                        <div className=''>
-                            <div className="relative text-center overflow-hidden bg-cover bg-no-repeat">
-                                <img className="rounded-t-lg rounded-xl h-[270px]" src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg" alt="" />
-                                <h1 className='text-xl font-medium pt-3'>Safayet Ahmed</h1>
-                                <h1 className='text-lg font-normal text-gray-400 pt-0'>Safayet Ahmed</h1>
-                            </div>
-                        </div>
+                        {
+                            populer?.map(item =>
+                                <div key={item?.id} className=''>
+                                    <div className=" text-center">
+                                        <Link to={`/agentdetails/${item?._id}`}>
+                                            <img className="rounded-t-lg  rounded-xl" src={item?.agentimg} alt="" />
+                                        </Link>
+                                        <h1 className='text-xl font-medium pt-3'>{item?.name}</h1>
+                                        <h1 className='text-base font-light font-poppins  text-gray-400 pt-0'>{item?.agent}</h1>
+                                    </div>
+                                </div>
+                            )
+                        }
                     </div>
                     <div className="divider divider-neutral pt-0"><div className='w-4 rounded-full h-2 bg-orange-600'></div><div className='w-4 rounded-full h-2 bg-black'></div><div className='w-4 rounded-full h-2 bg-black'></div></div>
                 </div>

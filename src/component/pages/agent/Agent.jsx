@@ -2,16 +2,21 @@ import React from 'react'
 import AgentHero from './AgentHero'
 import ex from '../../../../public/image/ex.png'
 import layot from '../../../../public/image/layot.png'
+import UseAgents from '../../hooks/use agents/UseAgents'
+import StyJurny from '../../shared/start your jurny/StyJurny'
+import { Link } from 'react-router-dom'
 
 
 const Agent = () => {
+    const [agents] = UseAgents();
+
     return (
         <div>
             <AgentHero></AgentHero>
             {/* all agent */}
             <div className='container pt-14 mx-auto'>
                 <div className='flex justify-between items-center'>
-                    <h1 className='font-poppins'>Showing <span className='font-bold'>1-8</span> or <span className='font-bold'>1,230</span> results</h1>
+                    <h1 className='font-poppins'>Showing<span className='font-bold'>0{agents?.length}</span></h1>
                     <div className='flex items-center gap-2'>
                         <h1>Sort by:</h1>
                         <div className='flex items-center gap-2'>
@@ -25,66 +30,24 @@ const Agent = () => {
 
                 {/* Our agents */}
                 <div className='grid gap-5 pt-6 lg:grid-cols-4 items-cente'>
-                    <div className=''>
-                        <div className=" relative text-center">
-                            <img className="rounded-t-lg rounded-xl h-[320px]" src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg" alt="" />
-                            <button className="absolute  top-2 left-0">
-                                <span className="bg-[#fff] px-2 py-[4px] text-xs font-medium pb-1">7 LISTING</span>
-                            </button>
-                            <h1 className='text-xl font-medium pt-3'>Safayet Ahmed</h1>
-                            <h1 className='text-lg font-normal text-gray-400 pt-0'>Safayet Ahmed</h1>
-                        </div>
-                    </div>
-                    <div className=''>
-                        <div className=" relative text-center">
-                            <img className="rounded-t-lg rounded-xl h-[320px]" src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg" alt="" />
-                            <button className="absolute  top-2 left-0">
-                                <span className="bg-[#fff] px-2 py-[4px] text-xs font-medium pb-1">7 LISTING</span>
-                            </button>
-                            <h1 className='text-xl font-medium pt-3'>Safayet Ahmed</h1>
-                            <h1 className='text-lg font-normal text-gray-400 pt-0'>Safayet Ahmed</h1>
-                        </div>
-                    </div>
-                    <div className=''>
-                        <div className=" relative text-center">
-                            <img className="rounded-t-lg rounded-xl h-[320px]" src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg" alt="" />
-                            <button className="absolute  top-2 left-0">
-                                <span className="bg-[#fff] px-2 py-[4px] text-xs font-medium pb-1">7 LISTING</span>
-                            </button>
-                            <h1 className='text-xl font-medium pt-3'>Safayet Ahmed</h1>
-                            <h1 className='text-lg font-normal text-gray-400 pt-0'>Safayet Ahmed</h1>
-                        </div>
-                    </div>
-                    <div className=''>
-                        <div className=" relative text-center">
-                            <img className="rounded-t-lg rounded-xl h-[320px]" src="https://tecdn.b-cdn.net/img/new/standard/nature/182.jpg" alt="" />
-                            <button className="absolute  top-2 left-0">
-                                <span className="bg-[#fff] px-2 py-[4px] text-xs font-medium pb-1">7 LISTING</span>
-                            </button>
-                            <h1 className='text-xl font-medium pt-3'>Safayet Ahmed</h1>
-                            <h1 className='text-lg font-normal text-gray-400 pt-0'>Safayet Ahmed</h1>
-                        </div>
-                    </div>
+                    {
+                        agents?.map(item =>
+                            <div key={item?.id} className=" relative text-center">
+                                <Link to={`/agentdetails/${item?._id}`}>
+                                    <img className="rounded-t-lg  rounded-xl" src={item?.agentimg} alt="" />
+                                </Link>
+                                <button className="absolute  top-2 left-0">
+                                    <span className="bg-[#fff] px-2 py-[4px] text-xs font-medium pb-1">{item?.listing} LISTING</span>
+                                </button>
+                                <h1 className='text-xl font-medium pt-3'>{item?.name}</h1>
+                                <h1 className='text-base font-light font-poppins  text-gray-400 pt-0'>{item?.agent}</h1>
+                            </div>
+                        )
+                    }
                 </div>
             </div>
             {/* start your journey */}
-            <div className='mt-24 mb-12 mx-auto overflow-y-scroll px-24 bg-cover bg-fixed bg-center bg-no-repeat ' style={{ backgroundImage: `url(${ex})` }}>
-                <div className='lg:flex container mx-auto justify-between items-center'>
-                    <div className=' pt-14 pb-28'>
-                        <div class="font-poppins text-white pt-2 leading-[64px] text-5xl">Start your Journey <br /> As a Realtor.</div>
-                        <img className='lg:w-44 md:w-40 w-0 ml-[256px] -mt-16' src={layot} alt="" />
-                    </div>
-                    <form className=''>
-                        <form>
-                            <div class="relative w-[380px]">
-                                <input type="search" id="search" class="block w-full outline-none p-4 text-sm text-black border rounded-lg bg-gray-50" placeholder="Email Address..." required />
-                                <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-[#FF6625] font-medium rounded-lg text-sm px-4 py-2 ">Get Started</button>
-                            </div>
-                        </form>
-                        <p className='text-white pt-1'>Already a Agent? <span className='text-[#FF6625] underline font-medium'> Sign in.</span> </p>
-                    </form>
-                </div>
-            </div>
+            <StyJurny></StyJurny>
         </div>
     )
 }

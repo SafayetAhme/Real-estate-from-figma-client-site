@@ -11,8 +11,8 @@ const PropertyOverViewSection = () => {
     return (
         <div className='mt-8 bg-white shadow-lg rounded-xl p-6'>
             <h1 className='text-2xl font-poppins pb-6 font-semibold'>Property Overview</h1>
-            <div className='flex items-center gap-[76px]'>
-                <div>
+            <div className='grid lg:grid-cols-9 md:grid-cols-6 sm:grid-cols-4 items-center '>
+                <div className='md:pb-4 sm:pb-4'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M15.5766 13.8983L15.9282 11.7497C16.0058 11.2757 16.0446 11.0386 15.9175 11.0039C15.7905 10.9692 15.6021 11.1654 15.2254 11.5577L10 17" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M8.42338 10.1017L8.07175 12.2503C7.99417 12.7243 7.95538 12.9614 8.08246 12.9961C8.20954 13.0308 8.39789 12.8346 8.77459 12.4423L14 7" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -21,7 +21,7 @@ const PropertyOverViewSection = () => {
                     <h1 className='font-poppins pt-1 text-lg'>Sqft. {menu?.sqft}</h1>
                 </div>
                 <h1 className='text-5xl pb-4 font-light font-sans text-gray-300'>/</h1>
-                <div>
+                <div className='md:pb-4 sm:pb-4'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M22 17.5H2" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M22 21V16C22 14.1144 22 13.1716 21.4142 12.5858C20.8284 12 19.8856 12 18 12H6C4.11438 12 3.17157 12 2.58579 12.5858C2 13.1716 2 14.1144 2 16V21" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -32,7 +32,7 @@ const PropertyOverViewSection = () => {
                     <h1 className='font-poppins pt-1 text-lg'>Bed. {menu?.bed}</h1>
                 </div>
                 <h1 className='text-5xl pb-4 font-light font-sans text-gray-300'>/</h1>
-                <div>
+                <div className='sm:pb-4'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M6 20L5 21M18 20L19 21" stroke="#777777" stroke-width="1.5" stroke-linecap="round" />
                         <path d="M3 12V13C3 16.2998 3 17.9497 4.02513 18.9749C5.05025 20 6.70017 20 10 20H14C17.2998 20 18.9497 20 19.9749 18.9749C21 17.9497 21 16.2998 21 13V12" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />

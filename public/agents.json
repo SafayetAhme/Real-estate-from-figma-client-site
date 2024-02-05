@@ -1,0 +1,218 @@
+[
+    {
+        "category": "populer",
+        "listing": "4",
+        "agentimg": "https://i.ibb.co/nfMSYZ6/Rectangle-45.png",
+        "name": "Chris Matial",
+        "agent": "agent",
+        "title": "Sales & Broker",
+        "location": "Bangladesh, Dhaka",
+        "phone": "+21 456 987 330",
+        "Email": "mathfir@support.com",
+        "Qualification": "Master Degree",
+        "agentfacebook": "https://www.facebook.com/",
+        "agenttwiter": "https://twitter.com/home",
+        "agentinstagram": "https://www.instagram.com/",
+        "agentlinkedin": "https://www.linkedin.com/",
+        "Risk": "Risk management and compliance, when approached strategically, have the potential",
+        "Overview": "Lorem ipsum dolor sit amet consectetur. Et velit varius ipsum tempor vel dignissim tincidunt. Aliquam accumsan laoreet ultricies tincidunt faucibus fames augue in sociis. Nisl enim integer neque nec.",
+        "customerReview": [
+            {
+                "profileimg": "https://i.ibb.co/X534SC1/image-2549.png",
+                "name": "Rakibull Hasan",
+                "description": "lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you",
+                "date": "1/29/2024",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "category": "populer",
+        "listing": "2",
+        "agentimg": "https://i.ibb.co/9h8mhw4/Rectangle-47.png",
+        "name": "Mark Filo",
+        "agent": "agent",
+        "title": "Sales & Broker",
+        "location": "Bangladesh, Dhaka",
+        "phone": "+21 456 987 330",
+        "Email": "mathfir@support.com",
+        "Qualification": "Master Degree",
+        "agentfacebook": "https://www.facebook.com/",
+        "agenttwiter": "https://twitter.com/home",
+        "agentinstagram": "https://www.instagram.com/",
+        "agentlinkedin": "https://www.linkedin.com/",
+        "Risk": "Risk management and compliance, when approached strategically, have the potential",
+        "Overview": "Lorem ipsum dolor sit amet consectetur. Et velit varius ipsum tempor vel dignissim tincidunt. Aliquam accumsan laoreet ultricies tincidunt faucibus fames augue in sociis. Nisl enim integer neque nec.",
+        "customerReview": [
+            {
+                "profileimg": "https://i.ibb.co/X534SC1/image-2549.png",
+                "name": "Rakibull Hasan",
+                "description": "lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you",
+                "date": "1/29/2024",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "category": "populer",
+        "listing": "3",
+        "agentimg": "https://i.ibb.co/1KhjtSy/Rectangle-45-1.png",
+        "name": "Jubayer Al Hasan",
+        "agent": "agent",
+        "title": "Sales & Broker",
+        "location": "Bangladesh, Dhaka",
+        "phone": "+21 456 987 330",
+        "Email": "mathfir@support.com",
+        "Qualification": "Master Degree",
+        "agentfacebook": "https://www.facebook.com/",
+        "agenttwiter": "https://twitter.com/home",
+        "agentinstagram": "https://www.instagram.com/",
+        "agentlinkedin": "https://www.linkedin.com/",
+        "Risk": "Risk management and compliance, when approached strategically, have the potential",
+        "Overview": "Lorem ipsum dolor sit amet consectetur. Et velit varius ipsum tempor vel dignissim tincidunt. Aliquam accumsan laoreet ultricies tincidunt faucibus fames augue in sociis. Nisl enim integer neque nec.",
+        "customerReview": [
+            {
+                "profileimg": "https://i.ibb.co/X534SC1/image-2549.png",
+                "name": "Rakibull Hasan",
+                "description": "lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you",
+                "date": "1/29/2024",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "category": "populer",
+        "listing": "5",
+        "agentimg": "https://i.ibb.co/Fhj56XR/Rectangle-44.png",
+        "name": "Jannatul Ferdaus",
+        "agent": "agent",
+        "title": "Sales & Broker",
+        "location": "Bangladesh, Dhaka",
+        "phone": "+21 456 987 330",
+        "Email": "mathfir@support.com",
+        "Qualification": "Master Degree",
+        "agentfacebook": "https://www.facebook.com/",
+        "agenttwiter": "https://twitter.com/home",
+        "agentinstagram": "https://www.instagram.com/",
+        "agentlinkedin": "https://www.linkedin.com/",
+        "Risk": "Risk management and compliance, when approached strategically, have the potential",
+        "Overview": "Lorem ipsum dolor sit amet consectetur. Et velit varius ipsum tempor vel dignissim tincidunt. Aliquam accumsan laoreet ultricies tincidunt faucibus fames augue in sociis. Nisl enim integer neque nec.",
+        "customerReview": [
+            {
+                "profileimg": "https://i.ibb.co/X534SC1/image-2549.png",
+                "name": "Rakibull Hasan",
+                "description": "lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you",
+                "date": "1/29/2024",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "category": "normal",
+        "listing": "3",
+        "agentimg": "https://i.ibb.co/cgYG8JR/Rectangle-48.png",
+        "name": "Mark Filo",
+        "agent": "agent",
+        "title": "Sales & Broker",
+        "location": "Bangladesh, Dhaka",
+        "phone": "+21 456 987 330",
+        "Email": "mathfir@support.com",
+        "Qualification": "Master Degree",
+        "agentfacebook": "https://www.facebook.com/",
+        "agenttwiter": "https://twitter.com/home",
+        "agentinstagram": "https://www.instagram.com/",
+        "agentlinkedin": "https://www.linkedin.com/",
+        "Risk": "Risk management and compliance, when approached strategically, have the potential",
+        "Overview": "Lorem ipsum dolor sit amet consectetur. Et velit varius ipsum tempor vel dignissim tincidunt. Aliquam accumsan laoreet ultricies tincidunt faucibus fames augue in sociis. Nisl enim integer neque nec.",
+        "customerReview": [
+            {
+                "profileimg": "https://i.ibb.co/X534SC1/image-2549.png",
+                "name": "Rakibull Hasan",
+                "description": "lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you",
+                "date": "1/29/2024",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "category": "normal",
+        "listing": "2",
+        "agentimg": "https://i.ibb.co/dMftcF7/Rectangle-45-2.png",
+        "name": "Jubayer Al Hasan",
+        "agent": "agent",
+        "title": "Sales & Broker",
+        "location": "Bangladesh, Dhaka",
+        "phone": "+21 456 987 330",
+        "Email": "mathfir@support.com",
+        "Qualification": "Master Degree",
+        "agentfacebook": "https://www.facebook.com/",
+        "agenttwiter": "https://twitter.com/home",
+        "agentinstagram": "https://www.instagram.com/",
+        "agentlinkedin": "https://www.linkedin.com/",
+        "Risk": "Risk management and compliance, when approached strategically, have the potential",
+        "Overview": "Lorem ipsum dolor sit amet consectetur. Et velit varius ipsum tempor vel dignissim tincidunt. Aliquam accumsan laoreet ultricies tincidunt faucibus fames augue in sociis. Nisl enim integer neque nec.",
+        "customerReview": [
+            {
+                "profileimg": "https://i.ibb.co/X534SC1/image-2549.png",
+                "name": "Rakibull Hasan",
+                "description": "lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you",
+                "date": "1/29/2024",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "category": "normal",
+        "listing": "4",
+        "agentimg": "https://i.ibb.co/qghZcYs/Rectangle-44-1.png",
+        "name": "Chris Matial",
+        "agent": "agent",
+        "title": "Sales & Broker",
+        "location": "Bangladesh, Dhaka",
+        "phone": "+21 456 987 330",
+        "Email": "mathfir@support.com",
+        "Qualification": "Master Degree",
+        "agentfacebook": "https://www.facebook.com/",
+        "agenttwiter": "https://twitter.com/home",
+        "agentinstagram": "https://www.instagram.com/",
+        "agentlinkedin": "https://www.linkedin.com/",
+        "Risk": "Risk management and compliance, when approached strategically, have the potential",
+        "Overview": "Lorem ipsum dolor sit amet consectetur. Et velit varius ipsum tempor vel dignissim tincidunt. Aliquam accumsan laoreet ultricies tincidunt faucibus fames augue in sociis. Nisl enim integer neque nec.",
+        "customerReview": [
+            {
+                "profileimg": "https://i.ibb.co/X534SC1/image-2549.png",
+                "name": "Rakibull Hasan",
+                "description": "lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you",
+                "date": "1/29/2024",
+                "rating": 5
+            }
+        ]
+    },
+    {
+        "category": "normal",
+        "listing": "1",
+        "agentimg": "https://i.ibb.co/FJNCFX8/Rectangle-44-2.png",
+        "name": "Jannatul Ferdaus",
+        "agent": "agent",
+        "title": "Sales & Broker",
+        "location": "Bangladesh, Dhaka",
+        "phone": "+21 456 987 330",
+        "Email": "mathfir@support.com",
+        "Qualification": "Master Degree",
+        "agentfacebook": "https://www.facebook.com/",
+        "agenttwiter": "https://twitter.com/home",
+        "agentinstagram": "https://www.instagram.com/",
+        "agentlinkedin": "https://www.linkedin.com/",
+        "Risk": "Risk management and compliance, when approached strategically, have the potential",
+        "Overview": "Lorem ipsum dolor sit amet consectetur. Et velit varius ipsum tempor vel dignissim tincidunt. Aliquam accumsan laoreet ultricies tincidunt faucibus fames augue in sociis. Nisl enim integer neque nec.",
+        "customerReview": [
+            {
+                "profileimg": "https://i.ibb.co/X534SC1/image-2549.png",
+                "name": "Rakibull Hasan",
+                "description": "lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you lorem ipsum dolor for you",
+                "date": "1/29/2024",
+                "rating": 5
+            }
+        ]
+    }
+]

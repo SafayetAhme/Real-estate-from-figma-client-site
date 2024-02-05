@@ -33,6 +33,7 @@ import SavedSearch from './component/pages/admin-dashboard/SavedSearch.jsx';
 import Reviews from './component/pages/admin-dashboard/Reviews.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import MenuDetails from './component/pages/menu details/MenuDetails.jsx';
+import AgentDetails from './component/pages/agent-details/AgentDetails.jsx';
 
 const queryClient = new QueryClient();
 
@@ -85,6 +86,11 @@ const router = createBrowserRouter([
         path: "/menudetails/:id",
         element: <MenuDetails></MenuDetails>,
         loader: () => fetch('http://localhost:5000/menus')
+      },
+      {
+        path: "/agentdetails/:id",
+        element: <AgentDetails></AgentDetails>,
+        loader: () => fetch('http://localhost:5000/agents')
       }
     ]
   },
