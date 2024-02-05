@@ -18,6 +18,7 @@ import AgencyClientFeedSection from './AgencyClientFeedSection'
 import AgencyVideoSection from './AgencyVideoSection'
 
 
+
 const Agency = () => {
 
     return (
@@ -47,7 +48,7 @@ const Agency = () => {
             </div>
             <p className="divider -mt-2 divider-neutral"></p>
 
-            {/* Secure section */}
+            {/* Secure section section */}
             <div className='container mx-auto pt-20'>
                 <div className="grid lg:grid-cols-2 gap-4 px-12">
                     <div>
@@ -86,7 +87,7 @@ const Agency = () => {
             {/* video section */}
             <AgencyVideoSection></AgencyVideoSection>
 
-            {/* We'r here */}
+            {/* We'r here sectiion */}
             <div className='pb-20'>
                 <div className='text-center lg:w-[1042px] mx-auto lg:pt-[101px] md:pt-[70px] sm:pt-[50px]'>
                     <div class="lg:text-[52px] font-poppins sm:text-[46px] md:text-[56px] text-[46px] lg:font-bold md:font-bold sm:font-bold  font-bold  text-center lg:leading-[68px] sm:leading-[60px] leading-[60px] ">We’r here to help <br /> you get your dream home</div>
@@ -115,7 +116,7 @@ const Agency = () => {
             {/*client Feedback section */}
             <AgencyClientFeedSection></AgencyClientFeedSection>
 
-            {/* Our agents */}
+            {/* Our agents section */}
             <AgentSection></AgentSection>
 
             {/* company section */}

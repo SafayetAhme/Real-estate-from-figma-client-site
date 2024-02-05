@@ -81,8 +81,8 @@ const AgentDetails = () => {
 
                         {/* overView section */}
                         <div className='pt-12'>
-                            <h1 className='text-2xl font-poppins font-semibold'>Overview</h1>
-                            <p className='font-poppins pb-6'>{agent?.Risk}</p>
+                            <h1 className='text-2xl font-poppins pb-4 font-semibold'>Overview</h1>
+                            <p className='font-poppins'>{agent?.Risk}</p>
                             <p className='font-poppins leading-[28px]'>{agent?.Overview}</p>
 
                             <h1 className='border-b border-[1px] border-b-black my-8 mb-14'></h1>

@@ -2,8 +2,12 @@ import React from 'react'
 import BlogHero from './BlogHero'
 import probg from '../../../../public/image/probg.png'
 import StyJurny from '../../shared/start your jurny/StyJurny'
+import UseBlogs from '../../hooks/use blogs/UseBlogs'
+import { Link } from 'react-router-dom'
 
 const Blog = () => {
+    const [blogs] = UseBlogs();
+
     return (
         <div>
             <BlogHero></BlogHero>
@@ -11,22 +15,28 @@ const Blog = () => {
             {/* blog card section */}
             <div className="grid lg:grid-cols-3 pt-10 container mx-auto">
                 <div className='pt-4 col-span-2 gap-5'>
-                    <div className='relative w-[750px]'>
-                        <img className='w-full' src="https://images.unsplash.com/photo-1617870952348-7524edfb61b7?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFuJTIwd2l0aCUyMGxhcHRvcHxlbnwwfHwwfHx8MA%3D%3D" alt="" />
-                        <h1 className='absolute top-0 left-0 bg-black px-4 py-1 text-white m-4'>17 Set</h1>
-                        <div className='flex items-center pt-4 gap-2'>
-                            <p className='text-lg font-medium'>Rashed kabir. </p>
-                            <p className='font-medium text-gray-500'>4 min</p>
-                        </div>
-                        <h1 className='font-poppins text-2xl font-black pt-3'>Print, publishing qui visual ux layout mockups.</h1>
-                        <p className='text-base font-normal font-poppins pt-4'>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...</p>
-                        <button className='flex items-center gap-2 hover:bg-[#000] hover:border-black border-2 text-black px-6 py-3 rounded- hover:text-white mt-6'>
-                            <h1 className='font-poppins'>Read More</h1>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M11.0053 6L18 6.00024M18 6.00024L18 12.962M18 6.00024L6 18" stroke="currentColor" strokeWidth="1.5" />
-                            </svg>
-                        </button>
-                    </div>
+                    {
+                        blogs?.map(item =>
+                            <div key={item?.id} className='relative w-[750px]'>
+                                <img className='w-full h-[480px] object-cover object-center' src={item?.imageone} alt="" />
+                                <h1 className='absolute top-0 left-0 bg-black px-4 py-1 text-white m-4'>{item?.date}</h1>
+                                <div className='flex items-center pt-4 gap-2'>
+                                    <p className='text-lg font-medium'>{item?.name}</p>
+                                    <p className='font-medium text-gray-500'>{item?.time}</p>
+                                </div>
+                                <h1 className='font-poppins text-2xl font-black pt-3'>{item?.headtitle}</h1>
+                                <p className='text-base font-normal font-poppins pt-4'>{item?.maintext}</p>
+                                <Link to={`/blogdetails/${item?._id}`}>
+                                    <button className='flex items-center mb-12 gap-2 hover:bg-[#000] hover:border-black border-2 text-black px-6 py-3 rounded- hover:text-white mt-6'>
+                                        <h1 className='font-poppins'>Read More</h1>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M11.0053 6L18 6.00024M18 6.00024L18 12.962M18 6.00024L6 18" stroke="currentColor" strokeWidth="1.5" />
+                                        </svg>
+                                    </button>
+                                </Link>
+                            </div>
+                        )
+                    }
                 </div>
                 <div className='col-span-1 h-fit p-4'>
                     <div className='p-5' style={{ backgroundImage: `url(${probg})` }}>
@@ -56,28 +66,22 @@ const Blog = () => {
 
                         {/* category */}
                         <div className='p-4 bg-white mt-4'>
-                            <h1 className='font-poppins text-lg font-semibold'>Category</h1>
-                            <div className='flex items-center pt-4 gap-3'>
-                                <img className='w-[60px] h-[60px]' src="https://images.unsplash.com/photo-1617870952348-7524edfb61b7?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFuJTIwd2l0aCUyMGxhcHRvcHxlbnwwfHwwfHx8MA%3D%3D" alt="" />
-                                <div>
-                                    <h1 className='font-poppins font-semibold text-sm'>10 days quick challenge for boost visitors.</h1>
-                                    <p className='font-poppins pt-1 text-gray-500'>23 July, 2018</p>
-                                </div>
-                            </div>
-                            <div className='flex items-center pt-4 gap-3'>
-                                <img className='w-[60px] h-[60px]' src="https://images.unsplash.com/photo-1617870952348-7524edfb61b7?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFuJTIwd2l0aCUyMGxhcHRvcHxlbnwwfHwwfHx8MA%3D%3D" alt="" />
-                                <div>
-                                    <h1 className='font-poppins font-semibold text-sm'>10 days quick challenge for boost visitors.</h1>
-                                    <p className='font-poppins pt-1 text-gray-500'>23 July, 2018</p>
-                                </div>
-                            </div>
-                            <div className='flex items-center pt-4 gap-3'>
-                                <img className='w-[60px] h-[60px]' src="https://images.unsplash.com/photo-1617870952348-7524edfb61b7?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFuJTIwd2l0aCUyMGxhcHRvcHxlbnwwfHwwfHx8MA%3D%3D" alt="" />
-                                <div>
-                                    <h1 className='font-poppins font-semibold text-sm'>10 days quick challenge for boost visitors.</h1>
-                                    <p className='font-poppins pt-1 text-gray-500'>23 July, 2018</p>
-                                </div>
-                            </div>
+                            <h1 className='font-poppins text-lg font-semibold'>Recent News</h1>
+                            {
+                                blogs?.map(item =>
+                                    <div key={item?.id} className='flex items-center pt-4 gap-3'>
+                                        <Link to={`/blogdetails/${item?._id}`}>
+                                            <div className='w-[60px]'>
+                                                <img className='w-full object-cover h-[60px]' src={item?.imageone} alt="" />
+                                            </div>
+                                        </Link>
+                                        <div>
+                                            <h1 className='font-poppins font-semibold text-sm'>{item?.headtitle}</h1>
+                                            <p className='font-poppins pt-1 text-gray-500'>{item?.time}</p>
+                                        </div>
+                                    </div>
+                                )
+                            }
                         </div>
 
                         {/* Keywords */}

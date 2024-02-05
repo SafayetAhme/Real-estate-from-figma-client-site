@@ -3,8 +3,11 @@ import ProjectsHero from './ProjectsHero'
 import { CiFacebook, CiTwitter } from "react-icons/ci";
 import { FaInstagram } from 'react-icons/fa';
 import StyJurny from '../../shared/start your jurny/StyJurny';
+import UseProjects from '../../hooks/use projects/UseProjects';
 
 const Projects = () => {
+    const [projects] = UseProjects();
+
     return (
         <div>
             {/* project hero */}
@@ -41,22 +44,28 @@ const Projects = () => {
                 </div>
 
                 {/* card section */}
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-                    <div className="relative">
-                        <img className="w-full h-[440px]" src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg" alt="" />
-                        <h1 className="bg-white absolute top-3 ml-3 text-black px-3 py-1">27 SEP</h1>
-                    </div>
-                    <div>
-                        <h1 className="border w-fit font-poppins px-2 py-1">Apartments</h1>
-                        <h1 className="font-poppins text-4xl font-semibold w-[500px] pt-4 leading-[48px]">Apartments on Vintage City.</h1>
-                        <p className="text-lg pt-4 font-poppins w-[520px]">Your leading real estate advocate, transforming houses into dreams. Trust </p>
-                        <div className="hover:bg-[#FF6625] hover:border-[#FF6625]  hover:text-white border p-6 mt-8 rounded-full w-fit">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M17 7L6 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                                <path d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </div>
-                    </div>
+                <div>
+                    {
+                        projects?.map(item =>
+                            <div key={item?.id} className="grid pb-12 lg:grid-cols-2 gap-16 items-center">
+                                <div className="relative">
+                                    <img className="w-full h-[440px]" src={item?.image} alt="" />
+                                    <h1 className="bg-white absolute top-3 ml-3 text-black px-3 py-1">{item?.time}</h1>
+                                </div>
+                                <div>
+                                    <h1 className="border w-fit font-poppins px-2 py-1">{item?.category}</h1>
+                                    <h1 className="font-poppins text-4xl font-semibold w-[500px] pt-4 leading-[48px]">{item?.name}</h1>
+                                    <p className="text-lg pt-4 font-poppins w-[520px]">{item?.title}</p>
+                                    <div className="hover:bg-[#FF6625] hover:border-[#FF6625]  hover:text-white border p-6 mt-8 rounded-full w-fit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M17 7L6 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                                            <path d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }
                 </div>
             </div>
             {/* start your journey section */}

@@ -34,6 +34,7 @@ import Reviews from './component/pages/admin-dashboard/Reviews.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import MenuDetails from './component/pages/menu details/MenuDetails.jsx';
 import AgentDetails from './component/pages/agent-details/AgentDetails.jsx';
+import BlogDetails from './component/pages/blog details/BlogDetails.jsx';
 
 const queryClient = new QueryClient();
 
@@ -91,6 +92,11 @@ const router = createBrowserRouter([
         path: "/agentdetails/:id",
         element: <AgentDetails></AgentDetails>,
         loader: () => fetch('http://localhost:5000/agents')
+      },
+      {
+        path: "/blogdetails/:id",
+        element: <BlogDetails></BlogDetails>,
+        loader: () => fetch('http://localhost:5000/blogs')
       }
     ]
   },
