@@ -4,6 +4,7 @@ import { CiFacebook, CiTwitter } from "react-icons/ci";
 import { FaInstagram } from 'react-icons/fa';
 import StyJurny from '../../shared/start your jurny/StyJurny';
 import UseProjects from '../../hooks/use projects/UseProjects';
+import { Link } from 'react-router-dom';
 
 const Projects = () => {
     const [projects] = UseProjects();
@@ -56,12 +57,14 @@ const Projects = () => {
                                     <h1 className="border w-fit font-poppins px-2 py-1">{item?.category}</h1>
                                     <h1 className="font-poppins text-4xl font-semibold w-[500px] pt-4 leading-[48px]">{item?.name}</h1>
                                     <p className="text-lg pt-4 font-poppins w-[520px]">{item?.title}</p>
-                                    <div className="hover:bg-[#FF6625] hover:border-[#FF6625]  hover:text-white border p-6 mt-8 rounded-full w-fit">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M17 7L6 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                                            <path d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </div>
+                                    <Link to={`/projectsDetails/${item?._id}`}>
+                                        <div className="hover:bg-[#FF6625] hover:border-[#FF6625]  hover:text-white border p-6 mt-8 rounded-full w-fit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M17 7L6 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                                                <path d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            </svg>
+                                        </div>
+                                    </Link>
                                 </div>
                             </div>
                         )

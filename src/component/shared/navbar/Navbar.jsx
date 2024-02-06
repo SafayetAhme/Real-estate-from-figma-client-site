@@ -1,15 +1,22 @@
 import '../navbar/Navbar.css'
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { IconContext } from 'react-icons';
 import { CiLock } from 'react-icons/ci';
 import { FaBars, FaRegHeart, FaTimes } from 'react-icons/fa';
 import { GoArrowUpRight } from 'react-icons/go';
 import { Link, NavLink } from "react-router-dom"
 import logo from '../../../../public/image/logo.png'
+import { AuthContext } from '../../auth/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
 
-    const user = false
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
+
     const isadmin = true
 
     const [click, setClick] = useState(false);
@@ -138,6 +145,17 @@ const Navbar = () => {
                                     {/* cart icon */}
                                     <div className="bg-[#FF6725] rounded-[10px] text-white p-[12px] ">
                                         <FaRegHeart className="text-2xl" />
+                                    </div>
+                                    <div className="dropdown dropdown-end">
+                                        <div tabIndex={0} role="button" className="btn mt-2 btn-ghost btn-circle avatar">
+                                            <div className="w-full rounded-lg">
+                                                <img alt="" src="https://as1.ftcdn.net/v2/jpg/03/34/30/82/1000_F_334308248_Wjo54yYt4ucwkvNtcyCMZI2DGvzhk0G6.jpg" />
+                                            </div>
+                                        </div>
+                                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                            <li><a>Profile</a></li>
+                                            <li onClick={handleLogOut}><a>Logout</a></li>
+                                        </ul>
                                     </div>
                                 </section> :
                                     <section className="flex items-center gap-4">

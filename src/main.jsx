@@ -35,6 +35,10 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import MenuDetails from './component/pages/menu details/MenuDetails.jsx';
 import AgentDetails from './component/pages/agent-details/AgentDetails.jsx';
 import BlogDetails from './component/pages/blog details/BlogDetails.jsx';
+import ProjectsDetails from './component/pages/project details/ProjectsDetails.jsx';
+import AuthProvider from './component/auth/AuthProvider.jsx';
+import ForgotPassword from './component/pages/sign-in/ForgotPassword.jsx';
+import ResetPassword from './component/pages/sign-in/ResetPassword.jsx';
 
 const queryClient = new QueryClient();
 
@@ -97,6 +101,19 @@ const router = createBrowserRouter([
         path: "/blogdetails/:id",
         element: <BlogDetails></BlogDetails>,
         loader: () => fetch('http://localhost:5000/blogs')
+      },
+      {
+        path: "/projectsDetails/:id",
+        element: <ProjectsDetails></ProjectsDetails>,
+        loader: () => fetch('http://localhost:5000/projects')
+      },
+      {
+        path: "/forgot-password",
+        element: <ForgotPassword></ForgotPassword>,
+      },
+      {
+        path: "/reset-Password",
+        element: <ResetPassword></ResetPassword>,
       }
     ]
   },
@@ -163,8 +180,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </AuthProvider>
   </React.StrictMode>,
 )
