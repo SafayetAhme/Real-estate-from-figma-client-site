@@ -130,7 +130,8 @@ const MenuDetails = () => {
                             <p className='bg-white absolute right-0 m-5 text-black font-poppins px-6 py-2 rounded-lg'>Sell all 0{menu?.image?.length} Photos</p>
                         </div>
                     </div>
-                    <div className='w-[282px] pt-3'>
+                    <div className='w-[222px] pt-3'>
+                        <img className='mb-3 rounded-xl w-full h-full' src={menu?.image?.[0]} alt="" onClick={() => setActiveImg(menu?.image?.[0])} />
                         <img className='mb-3 rounded-xl w-full h-full' src={menu?.image?.[1]} alt="" onClick={() => setActiveImg(menu?.image?.[1])} />
                         <img className='mb-3 rounded-xl w-full h-full' src={menu?.image?.[2]} alt="" onClick={() => setActiveImg(menu?.image?.[2])} />
                         <img className='mb-3 rounded-xl w-full h-full' src={menu?.image?.[3]} alt="" onClick={() => setActiveImg(menu?.image?.[3])} />

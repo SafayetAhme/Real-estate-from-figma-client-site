@@ -39,6 +39,7 @@ import ProjectsDetails from './component/pages/project details/ProjectsDetails.j
 import AuthProvider from './component/auth/AuthProvider.jsx';
 import ForgotPassword from './component/pages/sign-in/ForgotPassword.jsx';
 import ResetPassword from './component/pages/sign-in/ResetPassword.jsx';
+import Payment from './component/pages/payment/Payment.jsx';
 
 const queryClient = new QueryClient();
 
@@ -114,10 +115,15 @@ const router = createBrowserRouter([
       {
         path: "/reset-Password",
         element: <ResetPassword></ResetPassword>,
+      },
+      {
+        path: "/payment",
+        element: <Payment></Payment>,
       }
     ]
   },
 
+  
   // sign in and sign up page
   {
     path: "/signin",
