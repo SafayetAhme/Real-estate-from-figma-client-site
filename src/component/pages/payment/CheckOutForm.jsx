@@ -54,7 +54,7 @@ const CheckOutForm = () => {
                     }}
                 />
                 <div className=' text-center'>
-                    <button className="bg-blue-600  px-24 py-3 rounded-md text-white text-2xl my-12" type="submit">
+                    <button className="  px-12 bg-gray-200 py-3 rounded-md text-black text-2xl my-12" type="submit">
                         Pay
                     </button>
                 </div>

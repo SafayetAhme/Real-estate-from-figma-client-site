@@ -12,34 +12,34 @@ const MenuAgentSection = () => {
     console.log(menu)
 
 
-    const [formData, setFormData] = useState({
-        downPayment: '',
-        interestRate: '',
-        loanTerms: ''
-    });
-    const [result, setResult] = useState('');
-    const [showPopup, setShowPopup] = useState(false);
+    // const [formData, setFormData] = useState({
+    //     downPayment: '',
+    //     interestRate: '',
+    //     loanTerms: ''
+    // });
+    // const [result, setResult] = useState('');
+    // const [showPopup, setShowPopup] = useState(false);
 
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
+    // const handleChange = (e) => {
+    //     setFormData({
+    //         ...formData,
+    //         [e.target.name]: e.target.value
+    //     });
+    // };
 
-    const handleCalculate = () => {
-        const { downPayment, interestRate, loanTerms } = formData;
+    // const handleCalculate = () => {
+    //     const { downPayment, interestRate, loanTerms } = formData;
 
-        // Your calculation logic goes here
-        // For demonstration, let's assume a simple calculation
-        const monthlyPayment = (downPayment * (1 + interestRate / 100)) / (loanTerms * 12);
+    //     // Your calculation logic goes here
+    //     // For demonstration, let's assume a simple calculation
+    //     const monthlyPayment = (downPayment * (1 + interestRate / 100)) / (loanTerms * 12);
 
-        // Set the result
-        setResult(`Your monthly payment will be: $${monthlyPayment.toFixed(2)}`);
+    //     // Set the result
+    //     setResult(`Your monthly payment will be: $${monthlyPayment.toFixed(2)}`);
 
-        // Show the popup
-        setShowPopup(true);
-    };
+    //     // Show the popup
+    //     setShowPopup(true);
+    // };
 
 
 
@@ -146,41 +146,12 @@ const MenuAgentSection = () => {
 
             {/* Mortgage Calculator */}
             <div className='bg-white rounded-xl p-4 mt-6 justify-center'>
-                <h1 className='font-poppins pb-4 text-xl'>Mortgage Calculator</h1>
-                <div className='pt-2'>
-                    <label htmlFor="downPayment" className='text-gray-500 text-sm'>Down Payment*</label>
-                    <input type="number" name="downPayment" id="downPayment" value={formData.downPayment} onChange={handleChange} className="border-black border text-black sm:text-sm rounded-lg block w-full p-2.5 mt-1" placeholder="$" required />
-                </div>
-                <div className='pt-4'>
-                    <label htmlFor="interestRate" className='text-gray-500 text-sm'>Interest Rate*</label>
-                    <input type="number" name="interestRate" id="interestRate" value={formData.interestRate} onChange={handleChange} className="border-black border text-black sm:text-sm rounded-lg block w-full p-2.5 mt-1" placeholder="%" required />
-                </div>
-                <div className='pt-4 pb-8'>
-                    <label htmlFor="loanTerms" className='text-gray-500 text-sm'>Loan Terms (Years)</label>
-                    <input type="number" name="loanTerms" id="loanTerms" value={formData.loanTerms} onChange={handleChange} className="border-black border text-black sm:text-sm rounded-lg block w-full p-2.5 mt-1" placeholder="years" required />
-                </div>
+                <h1 className='font-poppins pb-4 text-xl'>Total Price: <span className='text-xl ml-1 font-semibold text-[#FF6625] font-poppins'>${menu?.price}</span> </h1>
                 <div className='pb-4'>
-                    <label onClick={handleCalculate} htmlFor="my_modal_7" className='font-poppins mt-4 py-[10px] px-[103px] rounded-lg text-white bg-[#FF6625]'>CALCULATE</label>
+                    <Link to="/payment">
+                        <button className='font-poppins py-[10px] w-full rounded-lg text-white bg-[#FF6625]'>Checkout</button>
+                    </Link>
                 </div>
-
-                {/* Popup */}
-                {showPopup && (
-                    <div className="popup">
-                        <input type="checkbox" id="my_modal_7" className="modal-toggle" />
-                        <div className="modal" role="dialog">
-                            <div className="modal-box">
-                                <div className="popup-content">
-                                    <span className="close" onClick={() => setShowPopup(false)}>&times;</span>
-                                    <p className='font-poppins text-center py-8 text-xl font-semibold'>{result}</p>
-                                    <Link to="/payment">
-                                        <button className='font-poppins py-[10px] w-full rounded-lg text-white bg-[#FF6625]'>Checkout</button>
-                                    </Link>
-                                </div>
-                            </div>
-                            <label className="modal-backdrop" htmlFor="my_modal_7">Close</label>
-                        </div>
-                    </div>
-                )}
             </div>
         </div>
     )
