@@ -7,7 +7,10 @@ import { IoIosMenu } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa";
 import StyJurny from '../../shared/start your jurny/StyJurny';
 import UseMenus from '../../hooks/usemenus/UseMenus';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import UseAuth from '../../hooks/useauth/UseAuth';
+import UseAddtolove from '../../hooks/use add to love/UseAddtolove';
+import UseAxiosPublic from '../../hooks/useAxiospublic/UseAxiosPublic';
 
 
 
@@ -17,12 +20,15 @@ const MAX = 12000;
 const Property = () => {
     const [menus] = UseMenus();
     const [menu, setMenu] = useState(menus)
-    // const { user } = UseAuth();
     const data = useLoaderData();
-    const [menusdetail, setMenusdetail] = useState(data)
-    const [menusdetails, setMenusdetails] = useState({})
-    // const axiosSecure = UserAxiosSecure();
+    const { user } = UseAuth();
+    const [refetch] = UseAddtolove();
+    const location = useLocation();
+    const nagigate = useNavigate()
+    const axiosSecure = UseAxiosPublic();
 
+    const [searchTerm, setSearchTerm] = useState("");
+    console.log(searchTerm)
 
     // for pagination
     const [currentPage, setCurrentPage] = useState(1)
@@ -97,15 +103,44 @@ const Property = () => {
         setMenu(filtercategory);
     }
 
-    const handelSort = (e) => {
-        if (e === 'high') {
-            const filtercategory = menus?.sort((a, b) => b?.price - a?.price);
-            setMenu(filtercategory)
-        } else if (e === 'low') {
-            const filtercategory = menus?.sort((a, b) => a?.price - b?.price);
-            setMenu(filtercategory)
+
+
+    // handle add to loce
+    const handleaddtolove = (menu) => {
+        if (user && user.email) {
+            // TODO: wow
+            console.log(user.email);
+
+            axiosSecure.post('/addLove', menu)
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data.insertedId) {
+                        alert("nice")
+                        refetch()
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }
+        else {
+            Swal.fire({
+                title: "if you want to add item please login",
+                text: "please",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Sign In"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    //   toto
+                    nagigate("/signin", { state: { from: location } })
+                }
+            });
         }
     }
+
 
 
     const handleaddtoCart = (item) => {
@@ -124,12 +159,7 @@ const Property = () => {
             })
     }
 
-    const [handelGrid, setHandelGrid] = useState(false)
 
-    console.log(menus)
-
-    const [search, setSearch] = useState('');
-    console.log(search)
 
     return (
         <div>
@@ -140,14 +170,16 @@ const Property = () => {
                 <div className='col-span-1 h-fit p-4' style={{ backgroundImage: `url(${probg})` }}>
                     <div className='bg-white rounded-2xl border-[2px] border-black'>
                         <div className='px-6 pt-6'>
-                            <form >
+                            <form onChange={(e) => setSearch(e.target.value)}>
                                 <div class="relative">
                                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                         </svg>
                                     </div>
-                                    <input onChange={(e) => search(e.target.value)} type="search" id="default-search" class="block w-full p-4 px-10 border rounded-xl" placeholder="Search..." required />
+                                    <input onChange={(event) => {
+                                        setSearchTerm(event.target.value);
+                                    }} type="search" id="default-search" class="block w-full p-4 px-10 border rounded-xl" placeholder="Search..." required />
                                 </div>
                             </form>
 
@@ -347,7 +379,7 @@ const Property = () => {
                                                 <button className="!absolute top-3 left-3">
                                                     <span className="bg-[#FF6B2C] px-2 py-[4px] text-xs font-medium rounded-full pb-1">{item?.Status}</span>
                                                 </button>
-                                                <button className="!absolute top-3 right-3">
+                                                <button onClick={() => handleaddtolove(item)} className="!absolute top-3 right-3">
                                                     <FaRegHeart calcMode="" />
                                                 </button>
                                             </div>
@@ -406,7 +438,13 @@ const Property = () => {
                             </div> :
                             <div className='pt-4 grid lg:grid-cols-2 gap-5'>
                                 {
-                                    records?.map((item) =>
+                                    records?.filter((item) => {
+                                        if (searchTerm === "") {
+                                            return item;
+                                        } else if (item.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                            return item;
+                                        }
+                                    }).map((item) =>
                                         <div key={item.id} className="relative flex w-full max-w-[23rem] flex-col rounded-2xl bg-white bg-clip-border text-gray-700 shadow-lg">
                                             <div className="relative mx-3 mt-3 overflow-hidden text-white shadow-xl rounded-lg bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
                                                 <img
@@ -418,7 +456,7 @@ const Property = () => {
                                                 <button className="!absolute top-3 left-3">
                                                     <span className="bg-[#FF6B2C] px-2 py-[4px] text-xs font-medium rounded-full pb-1">{item?.Status}</span>
                                                 </button>
-                                                <button className="!absolute top-3 right-3">
+                                                <button onClick={() => handleaddtolove(item)} className="!absolute top-3 right-3">
                                                     <FaRegHeart calcMode="" />
                                                 </button>
                                             </div>

@@ -1,42 +1,41 @@
-
-
 import { useMotionValue, motion, useSpring, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import { FiArrowRight } from "react-icons/fi";
 
+
 export const FeedbackSection = () => {
     return (
         <section className="bg-neutral-950 p-4 md:p-8">
-            <div className="mx-auto max-w-5xl">
-                <Link
-                    heading="Masum"
-                    subheading="Learn what we do here"
-                    imgSrc="https://ca.slack-edge.com/TBH372B4K-UBJ851Y1M-1069160440cb-512"
-                    href="#"
-                />
+            <div className="mx-auto container">
                 <Link
                     heading="Safayet"
-                    subheading="We work with great people"
-                    imgSrc="https://ca.slack-edge.com/TBH372B4K-U022J9MNVUN-bcec4b2c5a97-512"
-                    href="#"
+                    subheading="Streamlined user interface with intuitive navigation"
+                    imgSrc="https://i.ibb.co/RD996wW/image-2547-1.png"
+                    href="/Agency"
                 />
                 <Link
-                    heading="Rakibull"
-                    subheading="Our work speaks for itself"
-                    imgSrc="https://ca.slack-edge.com/TBH372B4K-U022R9BRMJ7-1301dbac073c-512"
-                    href="#"
+                    heading="Riphone"
+                    subheading="work with great people"
+                    imgSrc="https://i.ibb.co/3CL73cP/image-2547.png"
+                    href="/Agency"
                 />
                 <Link
-                    heading="Yeasing"
-                    subheading="We want cool people"
-                    imgSrc="https://ca.slack-edge.com/TBH372B4K-UBHAK4TA9-071e227f5fb9-512"
-                    href="#"
+                    heading="Arman"
+                    subheading="dynamic property listings make browsing for homes a breeze!"
+                    imgSrc="https://i.ibb.co/82sP4rj/image-2549.png"
+                    href="/Agency"
                 />
                 <Link
                     heading="Tanvir"
-                    subheading="Incase you're bored"
-                    imgSrc="https://ca.slack-edge.com/TBH372B4K-U04QD7GTJGG-ab27a3e1baa7-512"
-                    href="#"
+                    subheading="They are cool people"
+                    imgSrc="https://i.ibb.co/hL6RTsg/image-2548.png"
+                    href="/Agency"
+                />
+                <Link
+                    heading="Roni"
+                    subheading="dynamic property listings make browsing for homes a breeze!"
+                    imgSrc="https://i.ibb.co/VTMvSG7/image-2550.png"
+                    href="/Agency"
                 />
             </div>
         </section>

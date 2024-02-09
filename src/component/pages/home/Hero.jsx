@@ -2,6 +2,7 @@ import React from 'react'
 import layot from '../../../../public/image/layot.png'
 import Shape from '../../../../public/image/Bg-Shape.png'
 import { GoArrowUpRight } from "react-icons/go";
+import { Link } from 'react-router-dom';
 
 
 const Hero = () => {
@@ -38,9 +39,11 @@ const Hero = () => {
                         <img src="https://cdn.hugeicons.com/icons/arrow-down-01-stroke-rounded.svg" alt="arrow-down-01" width="28" height="28" />
                     </div>
                     <div className='border-s-2 py-1 lg:pl-10 md:pl-10 sm:pl-10 pl-6'>
-                        <button className="flex rounded-[10px] border-2 border-dashed border-black bg-[#FF6725] lg:px-12 md:px-12 sm:px-12 px-14 py-[10px] font-semibold gap-1 text-white transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
-                            <p className="font-medium">SEARCH</p>
-                        </button>
+                        <Link to='/Property'>
+                            <button className="flex rounded-[10px] border-2 border-dashed border-black bg-[#FF6725] lg:px-12 md:px-12 sm:px-12 px-14 py-[10px] font-semibold gap-1 text-white transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
+                                <p className="font-medium">SEARCH</p>
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

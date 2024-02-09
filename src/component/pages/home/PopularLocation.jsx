@@ -1,6 +1,7 @@
 import layot from '../../../../public/image/layot.png'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { Link } from 'react-router-dom';
 
 const card = [
     {
@@ -80,10 +81,12 @@ const PopularLocation = () => {
                     {
                         card.map((d) => (
                             <div class="relative grid h-[20rem] w-full max-w-[15.80rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
-                                <div
-                                    class="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent  bg-cover bg-clip-border bg-center text-gray-700 shadow-none" style={{ backgroundImage: `url(${d.image})` }}>
-                                    <div class="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50"></div>
-                                </div>
+                                <Link to="/Property">
+                                    <div
+                                        class="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent  bg-cover bg-clip-border bg-center text-gray-700 shadow-none" style={{ backgroundImage: `url(${d.image})` }}>
+                                        <div class="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50"></div>
+                                    </div>
+                                </Link>
                                 <div class="relative p-6 px-6 py-8 md:px-12">
                                     <h2 class=" block font-sans text-3xl font-medium leading-[1.5] tracking-normal text-white antialiased">{d.name}</h2>
                                     <h5 class="block font-sans text-xl antialiased font-normal leading-snug tracking-normal text-gray-400">{d.title}</h5>

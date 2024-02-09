@@ -1,6 +1,7 @@
 import ex from '../../../../public/image/ex.png'
 import lu from '../../../../public/image/lu.png'
 import layot from '../../../../public/image/layot.png'
+import { Link } from 'react-router-dom'
 
 const Exclusive = () => {
     return (
@@ -13,9 +14,11 @@ const Exclusive = () => {
                     </div>
                     <p className='text-lg pt-16 font-thin text-white '>Don't miss out on this personalized monthly <br /> exclusive offer for you.</p>
                     <div className="pt-8">
-                        <button className="flex rounded-full border-2 border-dashed border-white bg-[#FF6725] lg:px-6 md:px-6 sm:px-6 px-2 py-[10px] font-semibold gap-1 text-white transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
-                            <p className="font-medium">More Details</p>
-                        </button>
+                        <Link to="/Agency">
+                            <button className="flex rounded-full border-2 border-dashed border-white bg-[#FF6725] lg:px-6 md:px-6 sm:px-6 px-2 py-[10px] font-semibold gap-1 text-white transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
+                                <p className="font-medium">More Details</p>
+                            </button>
+                        </Link>
                     </div>
                 </div>
                 <div>

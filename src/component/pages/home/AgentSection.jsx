@@ -17,9 +17,11 @@ const AgentSection = () => {
                     <p className='text-lg pt-1 font-normal'>Lorem  is placeholder text commonly used  graphic </p>
                 </div>
                 <div>
-                    <button className="flex rounded-[10px] border-2 border-dashed border-[#FF6725] bg-[#ffffff] lg:px-6 md:px-6 sm:px-6 px-2 py-[10px] font-semibold gap-1 text-[#FF6725] transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
-                        <p className="font-medium">Meet Entire Team</p>
-                    </button>
+                    <Link to="/Agent">
+                        <button className="flex rounded-[10px] border-2 border-dashed border-[#FF6725] bg-[#ffffff] lg:px-6 md:px-6 sm:px-6 px-2 py-[10px] font-semibold gap-1 text-[#FF6725] transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
+                            <p className="font-medium">Meet Entire Team</p>
+                        </button>
+                    </Link>
                 </div>
             </div>
 
