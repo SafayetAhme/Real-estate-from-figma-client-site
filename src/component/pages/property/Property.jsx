@@ -3,7 +3,7 @@ import probg from '../../../../public/image/probg.png'
 import '../../shared/navbar/Navbar.css'
 import Slider from 'react-slider';
 import { useState } from 'react';
-import { IoIosMenu } from "react-icons/io";
+import { IoIosMenu, IoMdMenu } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa";
 import StyJurny from '../../shared/start your jurny/StyJurny';
 import UseMenus from '../../hooks/usemenus/UseMenus';
@@ -12,23 +12,28 @@ import UseAuth from '../../hooks/useauth/UseAuth';
 import UseAddtolove from '../../hooks/use add to love/UseAddtolove';
 import UseAxiosPublic from '../../hooks/useAxiospublic/UseAxiosPublic';
 import Swal from 'sweetalert2';
+import { CgMenuGridR } from "react-icons/cg";
+
 
 
 const MIN = 100;
 const MAX = 12000;
 
 const Property = () => {
-    const [menus] = UseMenus();
+    const [menus, refetch] = UseMenus();
     const [menu, setMenu] = useState(menus)
     const data = useLoaderData();
     const { user } = UseAuth();
-    const [refetch] = UseAddtolove();
+    // const [refetch] = UseAddtolove();
     const location = useLocation();
     const nagigate = useNavigate()
     const axiosSecure = UseAxiosPublic();
 
     const [searchTerm, setSearchTerm] = useState("");
     console.log(searchTerm)
+
+    // 
+    const [handelGrid, setHandelGrid] = useState(false)
 
     // for pagination
     const [currentPage, setCurrentPage] = useState(1)
@@ -332,17 +337,28 @@ const Property = () => {
                                     </option>
                                     <option>Normal</option>
                                 </select>
-                                <div className='hover:text-white hover:bg-black border-2 hover:border-black rounded-full p-1'>
-                                    <IoIosMenu className='w-6 h-6' />
+                                <div className="flex items-center gap-2">
+                                    <div>
+                                        <CgMenuGridR onClick={() => setHandelGrid(false)} className={`${!handelGrid ? 'p-1 text-4xl border bg-black text-white' : 'p-1 text-4xl border'}`} />
+                                    </div>
+                                    <div>
+                                        <IoMdMenu onClick={() => setHandelGrid(true)} className={`${!handelGrid ? 'p-1 text-4xl border ' : 'p-1 text-4xl border bg-black text-white'}`} />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     {
                         menu?.length > 0 ?
-                            <div className='pt-4 grid lg:grid-cols-2 gap-5'>
+                            <div className={`${handelGrid ? '' : 'grid items-center gap-6 pt-6 md:grid-cols-2 pb-14'}`}>
                                 {
-                                    menu?.map((item) =>
+                                    menu?.filter((item) => {
+                                        if (searchTerm === "") {
+                                            return item;
+                                        } else if (item.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                            return item;
+                                        }
+                                    }).map((item) =>
                                         <div key={item.id} className="relative flex w-full max-w-[23rem] flex-col rounded-2xl bg-white bg-clip-border text-gray-700 shadow-lg">
                                             <div className="relative mx-3 mt-3 overflow-hidden text-white shadow-xl rounded-lg bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
                                                 <img
@@ -411,7 +427,7 @@ const Property = () => {
                                     )
                                 }
                             </div> :
-                            <div className='pt-4 grid lg:grid-cols-2 gap-5'>
+                            <div className={`${handelGrid ? '' : 'grid items-center gap-6 pt-6 md:grid-cols-2 pb-14'}`}>
                                 {
                                     records?.filter((item) => {
                                         if (searchTerm === "") {

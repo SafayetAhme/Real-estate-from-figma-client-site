@@ -16,6 +16,8 @@ import StyJurny from '../../shared/start your jurny/StyJurny';
 import MenuReviewSection from './MenuReviewSection';
 import MenuAgentSection from './MenuAgentSection';
 import MenuSimilarSection from './MenuSimilarSection';
+import UseAuth from '../../hooks/useauth/UseAuth';
+import UseAxiosPublic from '../../hooks/useAxiospublic/UseAxiosPublic';
 
 
 // videl section
@@ -38,12 +40,59 @@ let useClickOutside = (handler) => {
 };
 
 const MenuDetails = () => {
-    const [menus] = UseMenus();
+    const [menus, refetch] = UseMenus();
     const { id } = useParams();
     const menu = menus.find(menu => menu._id === id);
     console.log(menu)
+    const { user } = UseAuth();
+    const axiosSecure = UseAxiosPublic();
+
 
     const [activeimg, setActiveImg] = useState(menu?.image?.[0])
+
+
+    // handle add to loce
+    const handleaddtolove = (menus) => {
+        if (user && user.email) {
+
+            const addtocartitem = {
+                menuId: menus?._id,
+                email: user?.email,
+                image: menus?.image,
+                price: menus?.price,
+                name: menus?.name,
+                title: menus?.title,
+            }
+
+            axiosSecure.post('/addLove', addtocartitem)
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data.insertedId) {
+                        alert("nice")
+                        refetch();
+                    }
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }
+        else {
+            Swal.fire({
+                title: "if you want to add item please login",
+                text: "please",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Sign In"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    //   toto
+                    nagigate("/signin", { state: { from: location } })
+                }
+            });
+        }
+    }
 
     return (
         <div>
@@ -81,15 +130,9 @@ const MenuDetails = () => {
 
                         {/* share icons */}
                         <div className='flex items-center gap-3'>
-                            <div className='hover:text-white border-2 hover:bg-[#FF6725] hover:border-[#FF6725]  rounded-full p-2'>
+                            <button onClick={() => handleaddtolove(menus)} className='hover:text-white border-2 hover:bg-[#FF6725] hover:border-[#FF6725]  rounded-full p-2'>
                                 <FaRegHeart className='w-5 h-5' />
-                            </div>
-                            <div className='hover:text-white hover:bg-[#FF6725] border-2 hover:border-[#FF6725]  rounded-full p-2'>
-                                <HiOutlineSave className='w-5 h-5' />
-                            </div>
-                            <div className='hover:text-white hover:bg-[#FF6725] border-2 hover:border-[#FF6725] rounded-full p-1'>
-                                <IoIosAddCircleOutline className='w-7 h-7' />
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>

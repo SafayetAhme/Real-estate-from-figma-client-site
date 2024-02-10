@@ -115,11 +115,10 @@ const MenuAgentSection = () => {
                     <h1 className='font-poppins text-center text-gray-500 pt-1 text-sm'>Email:</h1>
                     <h1 className='font-poppins text-center text-black font-semibold pt-1 text-sm'>{menu?.agentemail}</h1>
                 </div>
-                <div className='flex pt-2 items-center justify-between'>
+                <div className='flex pt-2 pb-0 items-center justify-between'>
                     <h1 className='font-poppins text-center text-gray-500 pt-1 text-sm'>Phone:</h1>
                     <h1 className='font-poppins text-center text-black font-semibold pt-1 text-sm'>{menu?.agentphone}</h1>
                 </div>
-                <button className='font-poppins w-full mt-7 py-[10px] rounded-lg text-white bg-[#FF6625]'>CONTACT AGENT</button>
             </div>
 
             {/* Schedule Tour */}
