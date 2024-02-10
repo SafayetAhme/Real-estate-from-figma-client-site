@@ -11,7 +11,7 @@ import { Link, useLoaderData, useLocation, useNavigate } from 'react-router-dom'
 import UseAuth from '../../hooks/useauth/UseAuth';
 import UseAddtolove from '../../hooks/use add to love/UseAddtolove';
 import UseAxiosPublic from '../../hooks/useAxiospublic/UseAxiosPublic';
-
+import Swal from 'sweetalert2';
 
 
 const MIN = 100;
@@ -40,19 +40,6 @@ const Property = () => {
     const numbers = [...Array(npage + 1).keys()].slice(1)
 
 
-
-    const filterValue = (e) => {
-        const rangeValues = e?.split('-');
-        const firstValue = rangeValues ? rangeValues[0] : null;
-        const secondValue = rangeValues ? rangeValues[1] : null;
-        const filteredArray = menus?.filter(number => number?.price >= firstValue && number?.price <= secondValue);
-        setMenu(filteredArray);
-    }
-    const allPrice = () => {
-        setMenu(menus);
-    }
-
-    // const [data, setData] = useState([])
 
     // filterData
     const filterData = (cata) => {
@@ -104,19 +91,25 @@ const Property = () => {
     }
 
 
-
     // handle add to loce
     const handleaddtolove = (menu) => {
         if (user && user.email) {
-            // TODO: wow
-            console.log(user.email);
 
-            axiosSecure.post('/addLove', menu)
+            const addtocartitem = {
+                menuId: menu?._id,
+                email: user?.email,
+                image: menu?.image,
+                price: menu?.price,
+                name: menu?.name,
+                title: menu?.title,
+            }
+
+            axiosSecure.post('/addLove', addtocartitem)
                 .then(res => {
                     console.log(res.data)
                     if (res.data.insertedId) {
                         alert("nice")
-                        refetch()
+                        refetch();
                     }
                 })
                 .catch(error => {
@@ -139,24 +132,6 @@ const Property = () => {
                 }
             });
         }
-    }
-
-
-
-    const handleaddtoCart = (item) => {
-        const email = user?.email;
-        const { _id, ...dataWithoutId } = item;
-        const data = { ...dataWithoutId, email };
-        console.log(data)
-        axiosSecure.post('/addtocart', data)
-            .then(res => {
-                Swal.fire({
-                    title: "Good job!",
-                    text: "Item successfully added",
-                    icon: "success"
-                });
-                document.getElementById('my_modal_10').close()
-            })
     }
 
 

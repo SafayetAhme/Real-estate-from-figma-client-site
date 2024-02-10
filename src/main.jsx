@@ -40,6 +40,7 @@ import AuthProvider from './component/auth/AuthProvider.jsx';
 import ForgotPassword from './component/pages/sign-in/ForgotPassword.jsx';
 import ResetPassword from './component/pages/sign-in/ResetPassword.jsx';
 import Payment from './component/pages/payment/Payment.jsx';
+import AddLove from './component/pages/add to love/AddLove.jsx';
 
 const queryClient = new QueryClient();
 
@@ -119,6 +120,10 @@ const router = createBrowserRouter([
       {
         path: "/payment",
         element: <Payment></Payment>,
+      },
+      {
+        path: "/addlove",
+        element: <AddLove></AddLove>
       }
     ]
   },

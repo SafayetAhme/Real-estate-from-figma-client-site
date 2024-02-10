@@ -7,9 +7,12 @@ import { GoArrowUpRight } from 'react-icons/go';
 import { Link, NavLink } from "react-router-dom"
 import logo from '../../../../public/image/logo.png'
 import { AuthContext } from '../../auth/AuthProvider';
+import UseAddtolove from '../../hooks/use add to love/UseAddtolove';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [addLove, refetch] = UseAddtolove();
+    refetch()
 
     const handleLogOut = () => {
         logOut()
@@ -143,9 +146,12 @@ const Navbar = () => {
                                         </button>
                                     </div>
                                     {/* cart icon */}
-                                    <div className="bg-[#FF6725] rounded-[10px] text-white p-[12px] ">
-                                        <FaRegHeart className="text-2xl" />
-                                    </div>
+                                    <Link to="/addlove">
+                                        <div className="bg-[#FF6725] relative rounded-[10px] text-white p-[12px] ">
+                                            <FaRegHeart className="text-2xl" />
+                                            <h1 className='absolute text-sm font-semibold -mt-8 ml-3 w-5 bg-white rounded-full text-black'>{addLove?.length}</h1>
+                                        </div>
+                                    </Link>
                                     <div className="dropdown dropdown-end">
                                         <div tabIndex={0} role="button" className="btn mt-2 btn-ghost btn-circle avatar">
                                             <div className="w-full rounded-lg">
@@ -164,7 +170,7 @@ const Navbar = () => {
                                             <NavLink to="/signin">
                                                 <button className="flex border-[1px] py-[9px] px-3 rounded-md text-[#FF6725] border-[#FF6725] items-center gap-2">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                        <path d="M12 16V14" stroke="#ff6725" stroke-width="1.5" strokeLinejoin="round"  />
+                                                        <path d="M12 16V14" stroke="#ff6725" stroke-width="1.5" strokeLinejoin="round" />
                                                         <path d="M5 15C5 11.134 8.13401 8 12 8C15.866 8 19 11.134 19 15C19 18.866 15.866 22 12 22C8.13401 22 5 18.866 5 15Z" stroke="#ff6725" stroke-width="1.5" />
                                                         <path d="M16.5 9.5V6.5C16.5 4.01472 14.4853 2 12 2C9.51472 2 7.5 4.01472 7.5 6.5V9.5" stroke="#ff6725" stroke-width="1.5" strokeLinejoin="round" />
                                                     </svg>
