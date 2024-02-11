@@ -4,7 +4,7 @@ import '../../shared/navbar/Navbar.css'
 import Slider from 'react-slider';
 import { useState } from 'react';
 import { IoIosMenu, IoMdMenu } from "react-icons/io";
-import { FaRegHeart } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import StyJurny from '../../shared/start your jurny/StyJurny';
 import UseMenus from '../../hooks/usemenus/UseMenus';
 import { Link, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
@@ -31,6 +31,9 @@ const Property = () => {
 
     const [searchTerm, setSearchTerm] = useState("");
     console.log(searchTerm)
+
+    // 
+    const [isLoved, setIsLoved] = useState(false);
 
     // 
     const [handelGrid, setHandelGrid] = useState(false)
@@ -97,9 +100,8 @@ const Property = () => {
 
 
     // handle add to loce
-    const handleaddtolove = (menu) => {
+    const handleAddToLove = (menu) => {
         if (user && user.email) {
-
             const addtocartitem = {
                 menuId: menu?._id,
                 email: user?.email,
@@ -115,6 +117,7 @@ const Property = () => {
                     if (res.data.insertedId) {
                         alert("nice")
                         refetch();
+                        setIsLoved(true); // Set isLoved to true when item is added to love
                     }
                 })
                 .catch(error => {
@@ -132,7 +135,6 @@ const Property = () => {
                 confirmButtonText: "Sign In"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    //   toto
                     nagigate("/signin", { state: { from: location } })
                 }
             });
@@ -154,7 +156,7 @@ const Property = () => {
                                 <div class="relative">
                                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                            <path stroke="currentColor" stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                         </svg>
                                     </div>
                                     <input onChange={(event) => {
@@ -296,8 +298,8 @@ const Property = () => {
                         {/* <div className='px-6'>
                             <button className='bg-[#FF6725] w-full gap-2 py-3 rounded-lg text-white justify-center mb-6 px-6 flex items-center'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M17.5 17.5L22 22" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round" />
+                                    <path d="M17.5 17.5L22 22" stroke="#ffffff" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
+                                    <path d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z" stroke="#ffffff" strokeWidth="1.5" strokeLinejoin="round" />
                                 </svg>
                                 <h1 className='font-poppins text-xl font-medium'>SEARCH</h1>
                             </button>
@@ -307,14 +309,14 @@ const Property = () => {
                         {/* <div className='flex justify-between'>
                             <div className=' w-full gap-2 text-black justify-center mb-6 flex items-center'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M20.9843 5C21.0344 4.28926 20.9732 3.83888 20.672 3.5074C20.2111 3 19.396 3 17.7657 3H6.23433C4.60404 3 3.7889 3 3.32795 3.5074C2.86701 4.0148 2.96811 4.8008 3.17033 6.3728C3.22938 6.8319 3.3276 7.09253 3.62734 7.44867C4.59564 8.59915 6.36901 10.6456 8.85746 12.5061C9.08486 12.6761 9.23409 12.9539 9.25927 13.2614C9.53961 16.6864 9.79643 19.0261 9.93278 20.1778C10.0043 20.782 10.6741 21.2466 11.226 20.8563C12.1532 20.2006 13.8853 19.4657 14.1141 18.2442C14.1986 17.7934 14.3136 17.0803 14.445 16" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M15.0132 6L14.5139 8.08437L15.3434 7.56607C15.9343 7.11729 16.6687 6.85119 17.4646 6.85119C19.4172 6.85119 21 8.45151 21 10.4256C21 12.3997 19.4172 14 17.4646 14C15.7543 14 14.3276 12.772 14 11.1405" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M20.9843 5C21.0344 4.28926 20.9732 3.83888 20.672 3.5074C20.2111 3 19.396 3 17.7657 3H6.23433C4.60404 3 3.7889 3 3.32795 3.5074C2.86701 4.0148 2.96811 4.8008 3.17033 6.3728C3.22938 6.8319 3.3276 7.09253 3.62734 7.44867C4.59564 8.59915 6.36901 10.6456 8.85746 12.5061C9.08486 12.6761 9.23409 12.9539 9.25927 13.2614C9.53961 16.6864 9.79643 19.0261 9.93278 20.1778C10.0043 20.782 10.6741 21.2466 11.226 20.8563C12.1532 20.2006 13.8853 19.4657 14.1141 18.2442C14.1986 17.7934 14.3136 17.0803 14.445 16" stroke="#000000" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
+                                    <path d="M15.0132 6L14.5139 8.08437L15.3434 7.56607C15.9343 7.11729 16.6687 6.85119 17.4646 6.85119C19.4172 6.85119 21 8.45151 21 10.4256C21 12.3997 19.4172 14 17.4646 14C15.7543 14 14.3276 12.772 14 11.1405" stroke="#000000" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
                                 </svg>
                                 <h1 className='font-poppins text-base font-medium'>Reset Filter</h1>
                             </div>
                             <div className=' w-full gap-2 text-black justify-center mb-6 flex items-center'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M13.7276 3.44418L15.4874 6.99288C15.7274 7.48687 16.3673 7.9607 16.9073 8.05143L20.0969 8.58575C22.1367 8.92853 22.6167 10.4206 21.1468 11.8925L18.6671 14.3927C18.2471 14.8161 18.0172 15.6327 18.1471 16.2175L18.8571 19.3125C19.417 21.7623 18.1271 22.71 15.9774 21.4296L12.9877 19.6452C12.4478 19.3226 11.5579 19.3226 11.0079 19.6452L8.01827 21.4296C5.8785 22.71 4.57865 21.7522 5.13859 19.3125L5.84851 16.2175C5.97849 15.6327 5.74852 14.8161 5.32856 14.3927L2.84884 11.8925C1.389 10.4206 1.85895 8.92853 3.89872 8.58575L7.08837 8.05143C7.61831 7.9607 8.25824 7.48687 8.49821 6.99288L10.258 3.44418C11.2179 1.51861 12.7777 1.51861 13.7276 3.44418Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M13.7276 3.44418L15.4874 6.99288C15.7274 7.48687 16.3673 7.9607 16.9073 8.05143L20.0969 8.58575C22.1367 8.92853 22.6167 10.4206 21.1468 11.8925L18.6671 14.3927C18.2471 14.8161 18.0172 15.6327 18.1471 16.2175L18.8571 19.3125C19.417 21.7623 18.1271 22.71 15.9774 21.4296L12.9877 19.6452C12.4478 19.3226 11.5579 19.3226 11.0079 19.6452L8.01827 21.4296C5.8785 22.71 4.57865 21.7522 5.13859 19.3125L5.84851 16.2175C5.97849 15.6327 5.74852 14.8161 5.32856 14.3927L2.84884 11.8925C1.389 10.4206 1.85895 8.92853 3.89872 8.58575L7.08837 8.05143C7.61831 7.9607 8.25824 7.48687 8.49821 6.99288L10.258 3.44418C11.2179 1.51861 12.7777 1.51861 13.7276 3.44418Z" stroke="#000000" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
                                 </svg>
                                 <h1 className='font-poppins text-base font-medium'>Save Search</h1>
                             </div>
@@ -370,8 +372,8 @@ const Property = () => {
                                                 <button className="!absolute top-3 left-3">
                                                     <span className="bg-[#FF6B2C] px-2 py-[4px] text-xs font-medium rounded-full pb-1">{item?.Status}</span>
                                                 </button>
-                                                <button onClick={() => handleaddtolove(item)} className="!absolute top-3 right-3">
-                                                    <FaRegHeart calcMode="" />
+                                                <button onClick={() => handleAddToLove(item)} className="!absolute top-3 right-3">
+                                                    {isLoved ? <FaHeart style={{ color: 'red' }} /> : <FaRegHeart />}
                                                 </button>
                                             </div>
                                             <div className="p-5">
@@ -380,29 +382,29 @@ const Property = () => {
                                                 <div className="items-center pt-3 flex justify-between mb-3">
                                                     <div className='flex gap-1 items-center'>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M15.5766 13.8983L15.9282 11.7497C16.0058 11.2757 16.0446 11.0386 15.9175 11.0039C15.7905 10.9692 15.6021 11.1654 15.2254 11.5577L10 17" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                            <path d="M8.42338 10.1017L8.07175 12.2503C7.99417 12.7243 7.95538 12.9614 8.08246 12.9961C8.20954 13.0308 8.39789 12.8346 8.77459 12.4423L14 7" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                            <path d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z" stroke="#777777" stroke-width="1.5" />
+                                                            <path d="M15.5766 13.8983L15.9282 11.7497C16.0058 11.2757 16.0446 11.0386 15.9175 11.0039C15.7905 10.9692 15.6021 11.1654 15.2254 11.5577L10 17" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
+                                                            <path d="M8.42338 10.1017L8.07175 12.2503C7.99417 12.7243 7.95538 12.9614 8.08246 12.9961C8.20954 13.0308 8.39789 12.8346 8.77459 12.4423L14 7" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
+                                                            <path d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z" stroke="#777777" strokeWidth="1.5" />
                                                         </svg>
                                                         <p>{item?.sqft} sqft</p>
                                                     </div>
                                                     <div className='flex gap-1 items-center'>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M22 17.5H2" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                            <path d="M22 21V16C22 14.1144 22 13.1716 21.4142 12.5858C20.8284 12 19.8856 12 18 12H6C4.11438 12 3.17157 12 2.58579 12.5858C2 13.1716 2 14.1144 2 16V21" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                            <path d="M11 12V10.2134C11 9.83272 10.9428 9.70541 10.6497 9.55538C10.0395 9.24292 9.29865 9 8.5 9C7.70135 9 6.96055 9.24292 6.35025 9.55538C6.05721 9.70541 6 9.83272 6 10.2134L6 12" stroke="#777777" stroke-width="1.5" stroke-linecap="round" />
-                                                            <path d="M18 12V10.2134C18 9.83272 17.9428 9.70541 17.6497 9.55538C17.0395 9.24292 16.2987 9 15.5 9C14.7013 9 13.9605 9.24292 13.3503 9.55538C13.0572 9.70541 13 9.83272 13 10.2134L13 12" stroke="#777777" stroke-width="1.5" stroke-linecap="round" />
-                                                            <path d="M21 12V7.36057C21 6.66893 21 6.32311 20.8079 5.99653C20.6157 5.66995 20.342 5.50091 19.7944 5.16283C17.5869 3.79978 14.8993 3 12 3C9.10067 3 6.41314 3.79978 4.20558 5.16283C3.65804 5.50091 3.38427 5.66995 3.19213 5.99653C3 6.32311 3 6.66893 3 7.36057V12" stroke="#777777" stroke-width="1.5" stroke-linecap="round" />
+                                                            <path d="M22 17.5H2" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
+                                                            <path d="M22 21V16C22 14.1144 22 13.1716 21.4142 12.5858C20.8284 12 19.8856 12 18 12H6C4.11438 12 3.17157 12 2.58579 12.5858C2 13.1716 2 14.1144 2 16V21" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
+                                                            <path d="M11 12V10.2134C11 9.83272 10.9428 9.70541 10.6497 9.55538C10.0395 9.24292 9.29865 9 8.5 9C7.70135 9 6.96055 9.24292 6.35025 9.55538C6.05721 9.70541 6 9.83272 6 10.2134L6 12" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" />
+                                                            <path d="M18 12V10.2134C18 9.83272 17.9428 9.70541 17.6497 9.55538C17.0395 9.24292 16.2987 9 15.5 9C14.7013 9 13.9605 9.24292 13.3503 9.55538C13.0572 9.70541 13 9.83272 13 10.2134L13 12" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" />
+                                                            <path d="M21 12V7.36057C21 6.66893 21 6.32311 20.8079 5.99653C20.6157 5.66995 20.342 5.50091 19.7944 5.16283C17.5869 3.79978 14.8993 3 12 3C9.10067 3 6.41314 3.79978 4.20558 5.16283C3.65804 5.50091 3.38427 5.66995 3.19213 5.99653C3 6.32311 3 6.66893 3 7.36057V12" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" />
                                                         </svg>
                                                         <p>{item?.bed} bed</p>
                                                     </div>
                                                     <div className='flex gap-1 items-center'>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M6 20L5 21M18 20L19 21" stroke="#777777" stroke-width="1.5" stroke-linecap="round" />
-                                                            <path d="M3 12V13C3 16.2998 3 17.9497 4.02513 18.9749C5.05025 20 6.70017 20 10 20H14C17.2998 20 18.9497 20 19.9749 18.9749C21 17.9497 21 16.2998 21 13V12" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                            <path d="M2 12H22" stroke="#777777" stroke-width="1.5" stroke-linecap="round" />
-                                                            <path d="M4 12V5.5234C4 4.12977 5.12977 3 6.5234 3C7.64166 3 8.62654 3.73598 8.94339 4.80841L9 5" stroke="#777777" stroke-width="1.5" stroke-linecap="round" />
-                                                            <path d="M8 6L10.5 4" stroke="#777777" stroke-width="1.5" stroke-linecap="round" />
+                                                            <path d="M6 20L5 21M18 20L19 21" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" />
+                                                            <path d="M3 12V13C3 16.2998 3 17.9497 4.02513 18.9749C5.05025 20 6.70017 20 10 20H14C17.2998 20 18.9497 20 19.9749 18.9749C21 17.9497 21 16.2998 21 13V12" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
+                                                            <path d="M2 12H22" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" />
+                                                            <path d="M4 12V5.5234C4 4.12977 5.12977 3 6.5234 3C7.64166 3 8.62654 3.73598 8.94339 4.80841L9 5" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" />
+                                                            <path d="M8 6L10.5 4" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" />
                                                         </svg>
                                                         <p>{item?.bath} bath</p>
                                                     </div>
@@ -416,8 +418,8 @@ const Property = () => {
                                                     <Link to={`/menudetails/${item?._id}`}>
                                                         <div className='hover:bg-[#FF6B2C] bg-black p-2 rounded-full'>
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path d="M17 7L6 18" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
-                                                                <path d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                                <path d="M17 7L6 18" stroke="#ffffff" strokeWidth="1.5" stroke-linecap="round" />
+                                                                <path d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13" stroke="#ffffff" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
                                                             </svg>
                                                         </div>
                                                     </Link>
@@ -447,8 +449,8 @@ const Property = () => {
                                                 <button className="!absolute top-3 left-3">
                                                     <span className="bg-[#FF6B2C] px-2 py-[4px] text-xs font-medium rounded-full pb-1">{item?.Status}</span>
                                                 </button>
-                                                <button onClick={() => handleaddtolove(item)} className="!absolute top-3 right-3">
-                                                    <FaRegHeart calcMode="" />
+                                                <button onClick={() => handleAddToLove(item)} className="!absolute top-3 right-3">
+                                                    {isLoved ? <FaHeart style={{ color: 'red' }} /> : <FaRegHeart />}
                                                 </button>
                                             </div>
                                             <div className="p-5">
@@ -457,29 +459,29 @@ const Property = () => {
                                                 <div className="items-center pt-3 flex justify-between mb-3">
                                                     <div className='flex gap-1 items-center'>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M15.5766 13.8983L15.9282 11.7497C16.0058 11.2757 16.0446 11.0386 15.9175 11.0039C15.7905 10.9692 15.6021 11.1654 15.2254 11.5577L10 17" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                            <path d="M8.42338 10.1017L8.07175 12.2503C7.99417 12.7243 7.95538 12.9614 8.08246 12.9961C8.20954 13.0308 8.39789 12.8346 8.77459 12.4423L14 7" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                            <path d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z" stroke="#777777" stroke-width="1.5" />
+                                                            <path d="M15.5766 13.8983L15.9282 11.7497C16.0058 11.2757 16.0446 11.0386 15.9175 11.0039C15.7905 10.9692 15.6021 11.1654 15.2254 11.5577L10 17" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
+                                                            <path d="M8.42338 10.1017L8.07175 12.2503C7.99417 12.7243 7.95538 12.9614 8.08246 12.9961C8.20954 13.0308 8.39789 12.8346 8.77459 12.4423L14 7" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
+                                                            <path d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z" stroke="#777777" strokeWidth="1.5" />
                                                         </svg>
                                                         <p>{item?.sqft} sqft</p>
                                                     </div>
                                                     <div className='flex gap-1 items-center'>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M22 17.5H2" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                            <path d="M22 21V16C22 14.1144 22 13.1716 21.4142 12.5858C20.8284 12 19.8856 12 18 12H6C4.11438 12 3.17157 12 2.58579 12.5858C2 13.1716 2 14.1144 2 16V21" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                            <path d="M11 12V10.2134C11 9.83272 10.9428 9.70541 10.6497 9.55538C10.0395 9.24292 9.29865 9 8.5 9C7.70135 9 6.96055 9.24292 6.35025 9.55538C6.05721 9.70541 6 9.83272 6 10.2134L6 12" stroke="#777777" stroke-width="1.5" stroke-linecap="round" />
-                                                            <path d="M18 12V10.2134C18 9.83272 17.9428 9.70541 17.6497 9.55538C17.0395 9.24292 16.2987 9 15.5 9C14.7013 9 13.9605 9.24292 13.3503 9.55538C13.0572 9.70541 13 9.83272 13 10.2134L13 12" stroke="#777777" stroke-width="1.5" stroke-linecap="round" />
-                                                            <path d="M21 12V7.36057C21 6.66893 21 6.32311 20.8079 5.99653C20.6157 5.66995 20.342 5.50091 19.7944 5.16283C17.5869 3.79978 14.8993 3 12 3C9.10067 3 6.41314 3.79978 4.20558 5.16283C3.65804 5.50091 3.38427 5.66995 3.19213 5.99653C3 6.32311 3 6.66893 3 7.36057V12" stroke="#777777" stroke-width="1.5" stroke-linecap="round" />
+                                                            <path d="M22 17.5H2" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
+                                                            <path d="M22 21V16C22 14.1144 22 13.1716 21.4142 12.5858C20.8284 12 19.8856 12 18 12H6C4.11438 12 3.17157 12 2.58579 12.5858C2 13.1716 2 14.1144 2 16V21" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
+                                                            <path d="M11 12V10.2134C11 9.83272 10.9428 9.70541 10.6497 9.55538C10.0395 9.24292 9.29865 9 8.5 9C7.70135 9 6.96055 9.24292 6.35025 9.55538C6.05721 9.70541 6 9.83272 6 10.2134L6 12" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" />
+                                                            <path d="M18 12V10.2134C18 9.83272 17.9428 9.70541 17.6497 9.55538C17.0395 9.24292 16.2987 9 15.5 9C14.7013 9 13.9605 9.24292 13.3503 9.55538C13.0572 9.70541 13 9.83272 13 10.2134L13 12" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" />
+                                                            <path d="M21 12V7.36057C21 6.66893 21 6.32311 20.8079 5.99653C20.6157 5.66995 20.342 5.50091 19.7944 5.16283C17.5869 3.79978 14.8993 3 12 3C9.10067 3 6.41314 3.79978 4.20558 5.16283C3.65804 5.50091 3.38427 5.66995 3.19213 5.99653C3 6.32311 3 6.66893 3 7.36057V12" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" />
                                                         </svg>
                                                         <p>{item?.bed} bed</p>
                                                     </div>
                                                     <div className='flex gap-1 items-center'>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <path d="M6 20L5 21M18 20L19 21" stroke="#777777" stroke-width="1.5" stroke-linecap="round" />
-                                                            <path d="M3 12V13C3 16.2998 3 17.9497 4.02513 18.9749C5.05025 20 6.70017 20 10 20H14C17.2998 20 18.9497 20 19.9749 18.9749C21 17.9497 21 16.2998 21 13V12" stroke="#777777" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                            <path d="M2 12H22" stroke="#777777" stroke-width="1.5" stroke-linecap="round" />
-                                                            <path d="M4 12V5.5234C4 4.12977 5.12977 3 6.5234 3C7.64166 3 8.62654 3.73598 8.94339 4.80841L9 5" stroke="#777777" stroke-width="1.5" stroke-linecap="round" />
-                                                            <path d="M8 6L10.5 4" stroke="#777777" stroke-width="1.5" stroke-linecap="round" />
+                                                            <path d="M6 20L5 21M18 20L19 21" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" />
+                                                            <path d="M3 12V13C3 16.2998 3 17.9497 4.02513 18.9749C5.05025 20 6.70017 20 10 20H14C17.2998 20 18.9497 20 19.9749 18.9749C21 17.9497 21 16.2998 21 13V12" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
+                                                            <path d="M2 12H22" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" />
+                                                            <path d="M4 12V5.5234C4 4.12977 5.12977 3 6.5234 3C7.64166 3 8.62654 3.73598 8.94339 4.80841L9 5" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" />
+                                                            <path d="M8 6L10.5 4" stroke="#777777" strokeWidth="1.5" stroke-linecap="round" />
                                                         </svg>
                                                         <p>{item?.bath} bath</p>
                                                     </div>
@@ -493,8 +495,8 @@ const Property = () => {
                                                     <Link to={`/menudetails/${item?._id}`}>
                                                         <div className='hover:bg-[#FF6B2C] bg-black p-2 rounded-full'>
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path d="M17 7L6 18" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
-                                                                <path d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                                <path d="M17 7L6 18" stroke="#ffffff" strokeWidth="1.5" stroke-linecap="round" />
+                                                                <path d="M11 6.13151C11 6.13151 16.6335 5.65662 17.4885 6.51153C18.3434 7.36645 17.8684 13 17.8684 13" stroke="#ffffff" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
                                                             </svg>
                                                         </div>
                                                     </Link>

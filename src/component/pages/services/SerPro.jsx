@@ -159,9 +159,9 @@ const SerPro = () => {
                             <button className="mx-auto flex items-center gap-2 rounded-[10px] border-2 border-dashed mt-8 border-black bg-[#FF6725] lg:px-6 md:px-6 sm:px-6 px-2 py-[10px] font-semibold text-white transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
                                 <p className="font-medium">Contact Us</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M20 18L20 6" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
-                                    <path d="M16 11.9995L4 11.9995" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M12 8C12 8 16 10.946 16 12C16 13.0541 12 16 12 16" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M20 18L20 6" stroke="#ffffff" strokeWidth="1.5" stroke-linecap="round" />
+                                    <path d="M16 11.9995L4 11.9995" stroke="#ffffff" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
+                                    <path d="M12 8C12 8 16 10.946 16 12C16 13.0541 12 16 12 16" stroke="#ffffff" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
                                 </svg>
                             </button>
                         </div>

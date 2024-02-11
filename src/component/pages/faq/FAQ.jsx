@@ -5,10 +5,11 @@ import probg from '../../../../public/image/probg.png'
 // import Accordion from "./Accordion";
 import FaqText from './FaqText';
 import StyJurny from '../../shared/start your jurny/StyJurny';
+import { Link } from 'react-router-dom';
 
 
 const FAQ = () => {
-    
+
 
     return (
         <div>
@@ -21,18 +22,20 @@ const FAQ = () => {
                     <div className='p-5' style={{ backgroundImage: `url(${probg})` }}>
                         {/* category */}
                         <div className='p-4 bg-white rounded-xl'>
-                            <p className='text-lg pb-2 font-poppins hover:underline'><span>1.</span> Selling</p>
-                            <p className='text-lg pb-2 font-poppins hover:underline'><span>2.</span> Renting</p>
-                            <p className='text-lg pb-2 font-poppins hover:underline'><span>3.</span> Buying</p>
-                            <p className='text-lg pb-2 font-poppins hover:underline'><span>4.</span> Payments</p>
-                            <p className='text-lg pb-2 font-poppins hover:underline'><span>5.</span> Terms & Conditions</p>
-                            <p className='text-lg pb-2 font-poppins hover:underline'><span>6.</span> Account</p>
+                            <p className='text-lg pb-2 font-poppins hover:underline'><a href="#Selling"><span>1.</span> Selling</a></p>
+                            <p className='text-lg pb-2 font-poppins hover:underline'><a href="#Renting"><span>2.</span> Renting</a></p>
+                            <p className='text-lg pb-2 font-poppins hover:underline'><a href="#Buying"><span>3.</span> Buying</a></p>
+                            <p className='text-lg pb-2 font-poppins hover:underline'><a href="#Payments"><span>4.</span> Payments</a></p>
+                            <p className='text-lg pb-2 font-poppins hover:underline'><a href="#Terms"><span>5.</span> Terms & Conditions</a></p>
+                            <p className='text-lg pb-2 font-poppins hover:underline'><a href="#Account"><span>6.</span> Account</a></p>
                         </div>
 
                         {/* Keywords */}
                         <div className='p-6 bg-white rounded-xl text-center mt-4'>
                             <h1 className='font-poppins text-2xl text-center font-semibold'>Don’t Find Your <br /> Answer?</h1>
-                            <button className='px-6 py-2 border-[2px] rounded-lg text-white bg-black hover:text-white font-poppins border-black mt-3'>Contact us</button>
+                            <Link to="/Contact">
+                                <button className='px-6 py-2 border-[2px] rounded-lg text-white bg-black hover:text-white font-poppins border-black mt-3'>Contact us</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -40,7 +43,7 @@ const FAQ = () => {
                 {/* col-span-2 */}
                 <div className='pt-4 col-span-2 gap-5'>
                     {/* SELLING */}
-                    <div>
+                    <div id='Selling'>
                         <h1 className='font-poppins text-gray-400'>SELLING</h1>
                         <hr className='mt-4' />
                         <div className="py-2">
@@ -66,7 +69,7 @@ const FAQ = () => {
                     </div>
 
                     {/* RENTING */}
-                    <div className='pt-12'>
+                    <div id='Renting' className='pt-12'>
                         <h1 className='font-poppins text-gray-400'>RENTING</h1>
                         <hr className='mt-4' />
                         <div className="py-2">
@@ -92,7 +95,7 @@ const FAQ = () => {
                     </div>
 
                     {/* Buying */}
-                    <div className='pt-12'>
+                    <div id='Buying' className='pt-12'>
                         <h1 className='font-poppins text-gray-400'>BUYING</h1>
                         <hr className='mt-4' />
                         <div className="py-2">
@@ -114,7 +117,7 @@ const FAQ = () => {
                     </div>
 
                     {/* Payments */}
-                    <div className='pt-12'>
+                    <div id='Payments' className='pt-12'>
                         <h1 className='font-poppins text-gray-400'>PAYMENTS</h1>
                         <hr className='mt-4' />
                         <div className="py-2">
@@ -136,8 +139,26 @@ const FAQ = () => {
                     </div>
 
                     {/* Terms & Conditions */}
-                    <div className='pt-12'>
+                    <div id='Terms' className='pt-12'>
                         <h1 className='font-poppins text-gray-400'>TERMS & CONDITIONS</h1>
+                        <hr className='mt-4' />
+                        <div className="py-2">
+                            <FaqText
+                                title="How does the free trial work?"
+                                answer="Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam placeat veniam voluptate fugit, ad eos officia quia deleniti qui excepturi id, omnis quas blanditiis hic, ratione velit reprehenderit. Sapiente quasi expedita voluptatum debitis necessitatibus? Explicabo molestiae velit quas a debitis."
+                            />
+                            <hr className='pb-1' />
+                            <FaqText
+                                title="How do you weigh different criteria in your process?"
+                                answer="Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam placeat veniam voluptate fugit, ad eos officia quia deleniti qui excepturi id, omnis quas blanditiis hic, ratione velit reprehenderit. Sapiente quasi expedita voluptatum debitis necessitatibus? Explicabo molestiae velit quas a debitis."
+                            />
+                            <hr className='pb-1' />
+                        </div>
+                    </div>
+
+                    {/* Terms & Conditions */}
+                    <div id='Account' className='pt-12'>
+                        <h1 className='font-poppins text-gray-400'>Account</h1>
                         <hr className='mt-4' />
                         <div className="py-2">
                             <FaqText

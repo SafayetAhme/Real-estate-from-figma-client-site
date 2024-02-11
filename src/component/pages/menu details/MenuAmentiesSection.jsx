@@ -16,25 +16,25 @@ const MenuAmentiesSection = () => {
             <div className='grid lg:grid-cols-4 gap-2 pt-6 items-center'>
                 <div className='flex items-center gap-2'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
                     </svg>
                     <h1 className="font-poppins text-lg text-black">{menu?.Heating}</h1>
                 </div>
                 <div className='flex items-center gap-2'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
                     </svg>
                     <h1 className="font-poppins text-lg text-black">{menu?.Garages}</h1>
                 </div>
                 <div className='flex items-center gap-2'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
                     </svg>
                     <h1 className="font-poppins text-lg text-black">{menu?.SwimmingPool}</h1>
                 </div>
                 <div className='flex items-center gap-2'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
                     </svg>
                     <h1 className="font-poppins text-lg text-black">{menu?.Parking}</h1>
                 </div>
@@ -42,25 +42,25 @@ const MenuAmentiesSection = () => {
             <div className='grid lg:grid-cols-4 gap-2 pt-4 items-center'>
                 <div className='flex items-center gap-2'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
                     </svg>
                     <h1 className="font-poppins text-lg text-black">{menu?.Garden}</h1>
                 </div>
                 <div className='flex items-center gap-2'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
                     </svg>
                     <h1 className="font-poppins text-lg text-black">{menu?.Wifi}</h1>
                 </div>
                 <div className='flex items-center gap-2'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
                     </svg>
                     <h1 className="font-poppins text-lg text-black">{menu?.PetFriendly}</h1>
                 </div>
                 <div className='flex items-center gap-2'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
                     </svg>
                     <h1 className="font-poppins text-lg text-black">{menu?.Refrigerator}</h1>
                 </div>
@@ -68,13 +68,13 @@ const MenuAmentiesSection = () => {
             <div className='grid lg:grid-cols-4 gap-2 pt-4 items-center'>
                 <div className='flex items-center gap-2'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
                     </svg>
                     <h1 className="font-poppins text-lg text-black">{menu?.Fireplace}</h1>
                 </div>
                 <div className='flex items-center gap-2'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M5 14L8.5 17.5L19 6.5" stroke="#2f2f2f" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
                     </svg>
                     <h1 className="font-poppins text-lg text-black">{menu?.DisabledAccess}</h1>
                 </div>

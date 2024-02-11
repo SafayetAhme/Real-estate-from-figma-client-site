@@ -1,17 +1,15 @@
-import { loadStripe } from "@stripe/stripe-js"
+import React from 'react';
 import { Elements } from '@stripe/react-stripe-js';
-import CheckOutForm from "./CheckOutForm";
+import { loadStripe } from '@stripe/stripe-js';
+import CheckOutForm from './CheckOutForm';
 
-// TODO
-const stripePromise = loadStripe(import.meta.env.VITE_payment_geteway_PK);
+const stripePromise = loadStripe(import.meta.env.VITE_Payment_PK);
 
 const Payment = () => {
     return (
-        <div>
-            <Elements stripe={stripePromise}>
-                <CheckOutForm></CheckOutForm>
-            </Elements>
-        </div>
+        <Elements stripe={stripePromise}>
+            <CheckOutForm></CheckOutForm>
+        </Elements>
     )
 }
 

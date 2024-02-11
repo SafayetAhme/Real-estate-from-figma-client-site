@@ -1,12 +1,37 @@
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import React, { useEffect, useState } from 'react';
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import UseAddtolove from '../../hooks/use add to love/UseAddtolove';
+import UseAxiosPublic from '../../hooks/useAxiospublic/UseAxiosPublic';
+import UseAuth from '../../hooks/useauth/UseAuth';
+import UseMenus from '../../hooks/usemenus/UseMenus';
+import { useParams } from 'react-router-dom';
 
 
 const CheckOutForm = () => {
+    const [menus] = UseMenus([]);
+    const { id } = useParams();
+    const menu = menus.find(menu => menu._id.price === id);
+    console.log(menu)
+    const [loading, setLoading] = useState(false);
+    const { user } = UseAuth([]);
+    const [clientSecret, setClientSecret] = useState('');
     const stripe = useStripe();
+    const axiosPublic = UseAxiosPublic([]);
     const elements = useElements();
+    const [error, setError] = useState('');
 
-    const handleSubmit = async (event) => {
-        event.PreventDefault();
+    useEffect(() => {
+        axiosPublic.post('/create-payment-intent', { menu })
+            .then(res => {
+                console.log(res.data.clientSecret);
+                setClientSecret(res.data.clientSecret);
+            })
+
+    }, [axiosPublic, menu])
+
+    const handleSubmit = async (e) => {
+        setLoading(true);
+        e.preventDefault();
 
         if (!stripe || !elements) {
             return
@@ -17,7 +42,6 @@ const CheckOutForm = () => {
         if (card === null) {
             return
         }
-
 
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
@@ -32,35 +56,43 @@ const CheckOutForm = () => {
             console.log('payment method', paymentMethod)
             setError('');
         }
-    }
+
+
+        // confirm payment
+        console.log('Client Secret:', clientSecret);
+        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: card,
+                billing_details: {
+                    email: user?.email || 'anonymous',
+                    name: user?.displayName || 'anonymous'
+                }
+            }
+        })
+
+        if (confirmError) {
+            console.log('confirm error')
+        }
+        else {
+            console.log('payment intent', paymentIntent)
+        }
+    };
 
     return (
-        <div className='container mx-auto h-screen'>
-            <form className='px-96 pt-20' onSubmit={handleSubmit}>
-                <CardElement
-                    options={{
-                        style: {
-                            base: {
-                                fontSize: '16px',
-                                color: '#424770',
-                                '::placeholder': {
-                                    color: '#aab7c4',
-                                },
-                            },
-                            invalid: {
-                                color: '#9e2146',
-                            },
-                        },
-                    }}
-                />
-                <div className=' text-center'>
-                    <button className="  px-12 bg-gray-200 py-3 rounded-md text-black text-2xl my-12" type="submit">
-                        Pay
-                    </button>
+        <div className="container mx-auto flex justify-center items-center h-screen">
+            <form onSubmit={handleSubmit} className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+                <h2 className="text-2xl mb-6 font-semibold">Payment Details</h2>
+                <div className="mb-6">
+                    <CardElement className="w-full bg-gray-100 p-3 rounded-md focus:outline-none focus:bg-white" />
                 </div>
+                <button type="submit" disabled={!stripe || !clientSecret}
+                    className="w-full bg-black text-white py-2 px-4 rounded-md focus:outline-none focus:bg-gray-900 ">
+                    Pay
+                </button>
+                <p className='text-red-700'>{error}</p>
             </form>
         </div>
-    )
-}
+    );
+};
 
-export default CheckOutForm
+export default CheckOutForm;

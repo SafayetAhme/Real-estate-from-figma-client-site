@@ -159,8 +159,8 @@ const Navbar = () => {
                                             </div>
                                         </div>
                                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                            <li><a>Profile</a></li>
-                                            <li onClick={handleLogOut}><a>Logout</a></li>
+                                            <li><button>Profile</button></li>
+                                            <li onClick={handleLogOut}><button>Logout</button></li>
                                         </ul>
                                     </div>
                                 </section> :
@@ -170,9 +170,9 @@ const Navbar = () => {
                                             <NavLink to="/signin">
                                                 <button className="flex border-[1px] py-[9px] px-3 rounded-md text-[#FF6725] border-[#FF6725] items-center gap-2">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                        <path d="M12 16V14" stroke="#ff6725" stroke-width="1.5" strokeLinejoin="round" />
-                                                        <path d="M5 15C5 11.134 8.13401 8 12 8C15.866 8 19 11.134 19 15C19 18.866 15.866 22 12 22C8.13401 22 5 18.866 5 15Z" stroke="#ff6725" stroke-width="1.5" />
-                                                        <path d="M16.5 9.5V6.5C16.5 4.01472 14.4853 2 12 2C9.51472 2 7.5 4.01472 7.5 6.5V9.5" stroke="#ff6725" stroke-width="1.5" strokeLinejoin="round" />
+                                                        <path d="M12 16V14" stroke="#ff6725" strokeWidth="1.5" strokeLinejoin="round" />
+                                                        <path d="M5 15C5 11.134 8.13401 8 12 8C15.866 8 19 11.134 19 15C19 18.866 15.866 22 12 22C8.13401 22 5 18.866 5 15Z" stroke="#ff6725" strokeWidth="1.5" />
+                                                        <path d="M16.5 9.5V6.5C16.5 4.01472 14.4853 2 12 2C9.51472 2 7.5 4.01472 7.5 6.5V9.5" stroke="#ff6725" strokeWidth="1.5" strokeLinejoin="round" />
                                                     </svg>
                                                     <p className="font-normal text-base">Login</p>
                                                 </button>
