@@ -28,7 +28,7 @@ const Dashboard = () => {
 
 
     return (
-        <div className=''>
+        <div className='mx-auto bg-[#F9F3EF] h-screen'>
             <div className='flex'>
                 <IconContext.Provider value={{ color: "undefined" }}>
                     <div className="navbarr  ml-4">

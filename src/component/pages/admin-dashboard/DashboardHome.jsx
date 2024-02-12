@@ -1,9 +1,51 @@
 import React from 'react'
+import user from '../../../../public/image/user.png'
+import save from '../../../../public/image/save.png'
+import ei from '../../../../public/image/ei.png'
+import love from '../../../../public/image/love.png'
+import element from '../../../../public/image/element.png'
+import UseMenus from '../../hooks/usemenus/UseMenus'
+import UseAddtolove from '../../hooks/use add to love/UseAddtolove'
 
 const DashboardHome = () => {
+    const [menus] = UseMenus([]);
+    const [addlove] = UseAddtolove([]);
+
     return (
-        <div className='m-4'>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Id dolor explicabo assumenda voluptas ipsum maxime aut beatae in eaque, reprehenderit obcaecati libero accusamus quisquam natus quibusdam recusandae odit quia nam, tempore laudantium soluta laboriosam? Soluta inventore debitis est quod cupiditate suscipit eius odit asperiores nobis, esse, porro, quae numquam praesentium quas! Deserunt exercitationem maxime ipsam vero, laudantium quis repudiandae eius, culpa illum fugit omnis earum amet nostrum quam enim. Magnam modi, fugit laborum consequatur rem consequuntur sequi dolorem dolores ut nesciunt assumenda animi quasi esse vel harum repellendus similique quibusdam facilis placeat voluptatem quia voluptate libero! Debitis ipsum laboriosam quos, obcaecati consectetur at eius reiciendis commodi, eveniet, eligendi ullam sequi? Rem sapiente exercitationem placeat eveniet quibusdam libero atque nemo eum corrupti. Culpa numquam vero distinctio ut nobis cumque, est a officiis hic harum id totam neque atque quasi voluptas magnam molestiae alias cum non veniam. Maiores, minus quibusdam totam culpa placeat eos. Animi modi sapiente deserunt doloribus ex repellendus officiis accusamus porro eligendi recusandae fuga dignissimos, et iure unde facere. Ducimus vero ex sunt odio repellendus dolore suscipit, tenetur ea? Perspiciatis dolore animi ex delectus numquam? Accusantium rem sint tempore dignissimos suscipit nam repellat aliquid dolores. Quos sunt exercitationem, eum magnam, repudiandae quia ut corporis molestias, inventore voluptate officia omnis laudantium. Id ratione consectetur magni laboriosam recusandae obcaecati aut nostrum odio odit, ea culpa deleniti et ut at iure tempora animi quaerat quos corrupti, sapiente soluta nam? Aspernatur rerum culpa quia aut nihil molestiae harum nisi dignissimos natus obcaecati consequatur architecto temporibus, porro minima voluptas necessitatibus eos! Earum soluta molestiae voluptatum natus rem enim quos totam eius consequuntur amet, iure, quas neque illo distinctio eveniet officia nam non tenetur est aspernatur dolorum asperiores. Praesentium et nemo voluptates quaerat deleniti ab odio officia temporibus doloribus ullam in dolore voluptatem incidunt ratione, quos aliquid! Quaerat aperiam ipsam dolorum perspiciatis repellendus quisquam sunt ipsum accusamus, reiciendis repellat beatae! Impedit accusantium reprehenderit labore veritatis. Accusantium, dolorum quidem neque est aliquid, nihil blanditiis quibusdam doloribus ullam ab aperiam quo laboriosam, deserunt inventore hic distinctio delectus sequi! Optio a distinctio dolorem quos tenetur, non aspernatur pariatur consequuntur asperiores cupiditate? Quos quisquam ipsam temporibus iusto? Quae fuga autem eveniet, laboriosam saepe dolore voluptate doloribus ducimus quidem maxime. Molestiae autem cumque ullam possimus similique, aspernatur eos nisi ducimus. Ipsum illo dignissimos provident quasi fuga blanditiis laborum obcaecati, quis consequatur sed aperiam! Voluptates veniam praesentium magni quam nobis adipisci, culpa sint vitae tempore soluta tempora, animi hic quaerat, dolore assumenda harum? Incidunt, magni numquam enim saepe rerum assumenda quod quaerat sapiente? Dignissimos accusantium voluptatem consectetur nesciunt alias beatae laboriosam necessitatibus, recusandae nam ducimus quibusdam et voluptate sint debitis non optio cum hic harum, odit temporibus impedit. At doloremque adipisci facilis amet natus. Dolore ut odit eum eaque porro quidem sapiente, quam ex tempore maxime nesciunt expedita doloremque dolores accusamus nam? Non nulla aperiam omnis quidem officiis velit dolorem exercitationem. Sunt, placeat eum. Ducimus ipsum soluta quas beatae perspiciatis porro enim praesentium aliquid nobis obcaecati rem facilis, tempore sed eos?
+        <div className='pl-[108px] pr-10 pt-8'>
+            <div className='bg-white rounded-2xl px-9 py-5 flex  items-center '>
+                <div className='flex items-center'>
+                    <div>
+                        <h1 className='font-poppins text-[#8e8e8e] font-light'>All Properties</h1>
+                        <h1 className='font-poppins text-black text-4xl font-semibold pt-1'>{menus?.length}</h1>
+                    </div>
+                    <img className='w-[75px] mx-8' src={user} alt="" />
+                    <img className='w-[30px] mr-4' src={element} alt="" />
+                </div>
+                <div className='flex items-center'>
+                    <div>
+                        <h1 className='font-poppins text-[#8e8e8e] font-light'>Total Pending</h1>
+                        <h1 className='font-poppins text-black text-4xl font-semibold pt-1'>none</h1>
+                    </div>
+                    <img className='w-[75px] mx-8' src={save} alt="" />
+                    <img className='w-[30px] mr-4' src={element} alt="" />
+                </div>
+                <div className='flex items-center'>
+                    <div>
+                        <h1 className='font-poppins text-[#8e8e8e] font-light'>Total Views</h1>
+                        <h1 className='font-poppins text-black text-4xl font-semibold pt-1'>none</h1>
+                    </div>
+                    <img className='w-[75px] mx-8' src={ei} alt="" />
+                    <img className='w-[30px] mr-4' src={element} alt="" />
+                </div>
+                <div className='flex items-center'>
+                    <div className=''>
+                        <h1 className='font-poppins text-[#8e8e8e] font-light'>Total Favourites</h1>
+                        <h1 className='font-poppins text-black text-4xl font-semibold pt-1'>{addlove?.length}</h1>
+                    </div>
+                    <img className='w-[75px] ml-8' src={love} alt="" />
+                </div>
+            </div>
         </div>
     )
 }

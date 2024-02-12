@@ -7,6 +7,7 @@ import UseMenus from '../../hooks/usemenus/UseMenus';
 import { useParams } from 'react-router-dom';
 
 
+
 const CheckOutForm = () => {
     const [menus] = UseMenus([]);
     const { id } = useParams();
@@ -59,23 +60,71 @@ const CheckOutForm = () => {
 
 
         // confirm payment
-        console.log('Client Secret:', clientSecret);
-        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
-                card: card,
-                billing_details: {
-                    email: user?.email || 'anonymous',
-                    name: user?.displayName || 'anonymous'
-                }
-            }
-        })
+        // console.log('Client Secret:', clientSecret);
+        // const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
+        //     payment_method: {
+        //         card: card,
+        //         billing_details: {
+        //             email: user?.email || 'anonymous',
+        //             name: user?.displayName || 'anonymous'
+        //         }
+        //     }
+        // })
 
-        if (confirmError) {
-            console.log('confirm error')
-        }
-        else {
-            console.log('payment intent', paymentIntent)
-        }
+        // if (confirmError) {
+        //     console.log('confirm error')
+        // }
+        // else {
+        //     console.log('payment intent', paymentIntent)
+        // }
+
+        const [modalOpen, setModalOpen] = useState(false);
+
+        const sidebarOptions = [
+            {
+                name: "Search",
+                icon: <Search01Icon />,
+            },
+            {
+                name: "Inbox",
+                icon: <InboxIcon />,
+            },
+            {
+                name: "Saved",
+                icon: <Bookmark01Icon />,
+            },
+            {
+                name: "Message",
+                icon: <Message01Icon />,
+                isMessages: true,
+            },
+        ];
+
+        const sidebarChannelOptions = [
+            {
+                name: "Admin resources",
+                icon: <UserIcon />,
+                isLocked: true,
+            },
+
+            {
+                name: "General",
+                icon: <Home01Icon />,
+            },
+            {
+                name: "Twist",
+                icon: <Rotate02Icon />,
+            },
+            {
+                name: "New channel",
+                icon: <AddCircleIcon />,
+            },
+            {
+                name: "Invite your team",
+                icon: <UserAdd02Icon />,
+                isRemovable: true,
+            },
+        ];
     };
 
     return (
@@ -91,6 +140,7 @@ const CheckOutForm = () => {
                 </button>
                 <p className='text-red-700'>{error}</p>
             </form>
+
         </div>
     );
 };
