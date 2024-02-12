@@ -13,30 +13,54 @@ const LeaveAReplySection = ({ id }) => {
     const { user } = UseAuth();
     const axiosData = UseAxiosPublic()
     const [ratings, setRating] = useState(0)
-    const handelSubmit = (e) => {
+    console.log(id)
+
+    const handleSubmit = (e) => {
         e.preventDefault()
         if (!ratings) {
             return toast.error("Please add rating")
         }
 
+
         const review = {
-            ratings: menus?.customerReview?.ratings,
-            photoURL: menus?.customerReview?.user?.photoURL,
-            displayName: menus?.customerReview?.user?.displayName,
-            review: menus?.customerReview?.e.target.review.value,
-            moment: menus?.customerReview?.moment().format('l')
+            ratings,
+            photoURL: user?.photoURL,
+            displayName: user?.displayName,
+            review: e.target.review.value,
+            moment: moment().format('l')
         }
 
         axiosData.post(`/customerReview/${id}`, review)
             .then(res => {
-                if (res.data.insertedId) {
-                    toast.success('Successfully added review!')
-                    refetch()
-                    e.target.reset()
-                    setRating(0)
-                }
+                console.log(res.data)
             })
     }
+
+
+    // const handelSubmit = (e) => {
+    //     e.preventDefault()
+    //     if (!ratings) {
+    //         return toast.error("Please add rating")
+    //     }
+
+    //     const review = {
+    //         ratings: menus?.customerReview?.ratings,
+    //         photoURL: menus?.customerReview?.user?.photoURL,
+    //         displayName: menus?.customerReview?.user?.displayName,
+    //         review: menus?.customerReview?.e.target.review.value,
+    //         moment: menus?.customerReview?.moment().format('l')
+    //     }
+
+    //     console.log(review)
+
+    //     axiosData.post(`/customerReview/${id}`, review)
+    //         .then(res => {
+    //             console.log(res.data)
+    //         })
+
+
+    // }
+
 
 
 
@@ -52,24 +76,27 @@ const LeaveAReplySection = ({ id }) => {
             }
 
             {/* input from */}
-            <form onSubmit={handelSubmit}>
-                <div>
-                    <div className='pb-4'>
-                        <label for="name" className='text-gray-500 text-sm'>Your name*</label>
-                        <input type="name" name="name" id="name" className=" border-black border text-black sm:text-sm rounded-lg block w-full p-2.5 " placeholder="name" required />
-                    </div>
-                    <label for="email" className='text-gray-500 text-sm'>Ratings*</label>
-                    <select className="border mb-6 mt-1 border-black py-[9px] px-3  rounded-lg w-full">
-                        <option disabled selected>Ratings</option>
-                        <option name='rating' rating={ratings}>1</option>
-                        <option name='rating' rating={ratings}>2</option>
-                        <option name='rating' rating={ratings}>3</option>
-                        <option name='rating' rating={ratings}>4</option>
-                        <option name='rating' rating={ratings}>5</option>
-                    </select>
-                    <textarea name="review" placeholder="Write your review here..." className="border-[1px] border-black rounded-lg pl-3 pt-3 pb-12 w-full" ></textarea>
-                    <button className='text-lg font-poppins border  px-8 py-2 rounded-lg mt-5 hover:text-white hover:bg-black hover:border-black'>Post Review</button>
+            <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+                <div className="mb-6">
+                    <label htmlFor="name" className="block text-sm text-gray-600 mb-2">Your name*</label>
+                    <input type="text" name="name" id="name" className="border border-gray-300 rounded-lg w-full py-2 px-3 text-sm" placeholder="Enter your name" required />
                 </div>
+                <div className="mb-6">
+                    <label htmlFor="ratings" className="block text-sm text-gray-600 mb-2">Ratings*</label>
+                    <select onChange={(e) => setRating(e.target.value)} id="ratings" name="ratings" className="border border-gray-300 rounded-lg w-full py-2 px-3 text-sm">
+                        <option value="" disabled defaultValue>Select your rating</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div className="mb-6">
+                    <label htmlFor="review" className="block text-sm text-gray-600 mb-2">Write your review here*</label>
+                    <textarea name="review" id="review" placeholder="Write your review here..." className="border border-gray-300 rounded-lg w-full py-2 px-3 text-sm" rows="4"></textarea>
+                </div>
+                <input type="submit" value="submit" className="bg-black text-white py-2 px-4 rounded-lg hover:bg-gray-800 transition duration-300 ease-in-out" />
             </form>
         </div>
     )

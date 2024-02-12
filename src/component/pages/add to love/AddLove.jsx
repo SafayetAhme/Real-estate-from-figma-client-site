@@ -34,7 +34,7 @@ const AddLove = () => {
             }
         });
     }
-
+    
     return (
         <div className="mx-auto container">
             {
@@ -56,7 +56,7 @@ const AddLove = () => {
                             <div className="flex items-center justify-between">
                                 <p className="text-lg font-black leading-none text-gray-800">${item?.price}</p>
                                 <div className="">
-                                    <Link disabled to="/payment">
+                                    <Link state={item} disabled to="/payment">
                                         <button className="flex rounded-[10px] border-2 border-dashed border-black bg-[#FF6725] lg:px-4 md:px-4 sm:px-4 px-2 py-[9px] font-semibold gap-1 text-white transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
                                             <p className="font-medium text-base">Rent Now</p>
                                             <GoArrowUpRight className="text-2xl " />

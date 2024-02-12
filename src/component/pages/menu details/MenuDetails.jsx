@@ -234,7 +234,7 @@ const MenuDetails = () => {
                         <MenuReviewSection></MenuReviewSection>
 
                         {/* Leave A Reply section */}
-                        <LeaveAReplySection></LeaveAReplySection>
+                        <LeaveAReplySection id={id}></LeaveAReplySection>
 
                     </div>
 
