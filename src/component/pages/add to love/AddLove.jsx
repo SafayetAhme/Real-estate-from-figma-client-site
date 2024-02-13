@@ -41,7 +41,7 @@ const AddLove = () => {
                 addLove?.map(item =>
                     <div key={item.id} className="md:flex items-center py-8 border-t border-gray-200">
                         <div className="w-[240px] lg:h-[200px] sm:h-[200px] md:h-[200px] h-[200px]">
-                            <Link to={`/menudetails/${item?._id}`}>
+                            <Link>
                                 <img className='w-full rounded-xl h-full object-center object-cover' src={item?.image} alt />
                             </Link>
                         </div>

@@ -165,7 +165,7 @@ const AgentDetails = () => {
                             <h1 className='border-b border-[1px] border-b-black my-10 mb-14'></h1>
 
                             {/* Leave A Reply section */}
-                            <AgentLeaveSection></AgentLeaveSection>
+                            <AgentLeaveSection id={id}></AgentLeaveSection>
 
                         </div>
                     </div>

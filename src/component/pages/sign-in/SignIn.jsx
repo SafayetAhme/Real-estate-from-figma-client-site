@@ -7,7 +7,7 @@ import { AuthContext } from '../../auth/AuthProvider'
 
 const SignIn = () => {
     const { signin, signInWithGoogle } = useContext(AuthContext);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
 
     // const from = location.state?.from?.pathname || "/";
@@ -24,6 +24,7 @@ const SignIn = () => {
                 const user = result.user;
                 console.log(user);
                 alert('successfull')
+                navigate("/");
             })
             .catch(error => {
                 console.log(error)
@@ -38,6 +39,7 @@ const SignIn = () => {
             .then(result => {
                 console.log(result.user);
                 alert('successfull with google')
+                navigate("/");
                 const userInfo = {
                     email: result.user?.email,
                     name: result.user?.displayName

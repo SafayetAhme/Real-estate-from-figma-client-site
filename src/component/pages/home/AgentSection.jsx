@@ -2,6 +2,7 @@ import layot from '../../../../public/image/layot.png'
 import bgagent from '../../../../public/image/bgagent.png'
 import UseAgents from '../../hooks/use agents/UseAgents'
 import { Link } from 'react-router-dom';
+import NotFount from '../../shared/not found page/NotFount';
 
 
 const AgentSection = () => {
@@ -30,21 +31,25 @@ const AgentSection = () => {
                 <div>
                     <div className="container  h-20 mx-auto" style={{ backgroundImage: `url(${bgagent})` }}>
                     </div>
-                    <div className='grid p-4 -mt-20 gap-5 lg:grid-cols-4 items-cente'>
-                        {
-                            populer?.map(item =>
-                                <div key={item?.id} className=''>
-                                    <div className=" text-center">
-                                        <Link to={`/agentdetails/${item?._id}`}>
-                                            <img className="rounded-t-lg  rounded-xl" src={item?.agentimg} alt="" />
-                                        </Link>
-                                        <h1 className='text-xl font-medium pt-3'>{item?.name}</h1>
-                                        <h1 className='text-base font-light font-poppins  text-gray-400 pt-0'>{item?.agent}</h1>
-                                    </div>
-                                </div>
-                            )
-                        }
-                    </div>
+                    {
+                        agents?.length > 0 ? <div>
+                            <div className='grid p-4 -mt-20 gap-5 lg:grid-cols-4 items-cente'>
+                                {
+                                    populer?.map(item =>
+                                        <div key={item?.id} className=''>
+                                            <div className=" text-center">
+                                                <Link to={`/agentdetails/${item?._id}`}>
+                                                    <img className="rounded-t-lg  rounded-xl" src={item?.agentimg} alt="" />
+                                                </Link>
+                                                <h1 className='text-xl font-medium pt-3'>{item?.name}</h1>
+                                                <h1 className='text-base font-light font-poppins  text-gray-400 pt-0'>{item?.agent}</h1>
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                            </div>
+                        </div> : <NotFount></NotFount>
+                    }
                     <div className="divider divider-neutral pt-0"><div className='w-4 rounded-full h-2 bg-orange-600'></div><div className='w-4 rounded-full h-2 bg-black'></div><div className='w-4 rounded-full h-2 bg-black'></div></div>
                 </div>
             </div>

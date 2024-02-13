@@ -1,34 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import UseAddtolove from '../../hooks/use add to love/UseAddtolove';
 import UseAxiosPublic from '../../hooks/useAxiospublic/UseAxiosPublic';
 import UseAuth from '../../hooks/useauth/UseAuth';
-import UseMenus from '../../hooks/usemenus/UseMenus';
-import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 
 
 const CheckOutForm = ({ item }) => {
     const [loading, setLoading] = useState(false);
+    const [transactionId, setTransactionId] = useState('');
     const { user } = UseAuth([]);
     const [clientSecret, setClientSecret] = useState('');
-    console.log(clientSecret)
     const stripe = useStripe();
     const axiosPublic = UseAxiosPublic([]);
     const elements = useElements();
     const [error, setError] = useState('');
 
 
-    useEffect( () => {
+    useEffect(() => {
         axiosPublic.post('/create-payment-intent', { price: item.price })
-        .then(res => {
-            setClientSecret(res?.data?.clientSecret);
-        })
+            .then(res => {
+                setClientSecret(res?.data?.clientSecret);
+            })
     }, [item])
 
     const handleSubmit = async (e) => {
         setLoading(true);
         e.preventDefault();
+
 
         if (!stripe || !elements) {
             return
@@ -56,41 +55,73 @@ const CheckOutForm = ({ item }) => {
 
 
         // confirm payment
-        // console.log('Client Secret:', clientSecret);
-        // const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
-        //     payment_method: {
-        //         card: card,
-        //         billing_details: {
-        //             email: user?.email || 'anonymous',
-        //             name: user?.displayName || 'anonymous'
-        //         }
-        //     }
-        // })
+        console.log('Client Secret:', clientSecret);
+        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: card,
+                billing_details: {
+                    email: user?.email || 'anonymous',
+                    name: user?.displayName || 'anonymous'
+                }
+            }
+        })
 
-        // if (confirmError) {
-        //     console.log('confirm error')
-        // }
-        // else {
-        //     console.log('payment intent', paymentIntent)
-        // }
+        if (confirmError) {
+            console.log('confirm error')
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "already payment done",
+                footer: ''
+            });
+        }
+        else {
+            console.log('payment intent', paymentIntent)
+            if (paymentIntent.status === 'succeeded') {
+                console.log('transaction id', paymentIntent.id);
+                setTransactionId(paymentIntent.id);
+
+                // now save the paymetn in the database
+                const payment = {
+                    email: user.email,
+                    price: item.price,
+                    date: new Date(),
+                    status: 'pending'
+                }
+
+                const res = await axiosPublic.post('/payment', payment);
+                console.log('payment saved', res?.data)
+                if (res?.data) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Payment succeeded",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            }
+        }
 
     };
 
 
     return (
         <div className="container mx-auto flex justify-center items-center h-screen">
-            <form onSubmit={handleSubmit} className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
-                <h2 className="text-2xl mb-6 font-semibold">Payment Details</h2>
+            <form onSubmit={handleSubmit} className="w-full max-w-md bg-gray-100 p-8 rounded-lg shadow-md">
+                <h2 className="text-2xl mb-6 font-semibold text-gray-800">Payment Details</h2>
                 <div className="mb-6">
-                    <CardElement className="w-full bg-gray-100 p-3 rounded-md focus:outline-none focus:bg-white" />
+                    <CardElement className="w-full bg-white p-3 rounded-md focus:outline-none focus:bg-white shadow-md" />
                 </div>
                 <button type="submit" disabled={!stripe || !clientSecret}
-                    className="w-full bg-black text-white py-2 px-4 rounded-md focus:outline-none focus:bg-gray-900 ">
-                    Pay
+                    className="w-full bg-blue-500 text-white py-2 px-4 rounded-md focus:outline-none hover:bg-blue-600">
+                    Pay Now
                 </button>
-                <p className='text-red-700'>{error}</p>
+                <p className='text-red-700 mt-2'>{error}</p>
+                {transactionId && (
+                    <p className='text-green-600 mt-2'>Your transaction id: {transactionId}</p>
+                )}
             </form>
-
         </div>
     );
 };

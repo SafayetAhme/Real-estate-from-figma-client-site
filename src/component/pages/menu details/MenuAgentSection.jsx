@@ -11,63 +11,7 @@ const MenuAgentSection = () => {
     console.log(menu)
 
 
-    // const [formData, setFormData] = useState({
-    //     downPayment: '',
-    //     interestRate: '',
-    //     loanTerms: ''
-    // });
-    // const [result, setResult] = useState('');
-    // const [showPopup, setShowPopup] = useState(false);
 
-    // const handleChange = (e) => {
-    //     setFormData({
-    //         ...formData,
-    //         [e.target.name]: e.target.value
-    //     });
-    // };
-
-    // const handleCalculate = () => {
-    //     const { downPayment, interestRate, loanTerms } = formData;
-
-    //     // Your calculation logic goes here
-    //     // For demonstration, let's assume a simple calculation
-    //     const monthlyPayment = (downPayment * (1 + interestRate / 100)) / (loanTerms * 12);
-
-    //     // Set the result
-    //     setResult(`Your monthly payment will be: $${monthlyPayment.toFixed(2)}`);
-
-    //     // Show the popup
-    //     setShowPopup(true);
-    // };
-
-
-
-    // payment 
-    // const makePayment = async () => {
-    //     const stripe = await loadStripe("pk_test_51OET2sFxUkmwfowIdUonawthBuclXj6u6pNKLvP2wMPIIzF11PDCsHfmzcpGtC8nHnCnIbbk8LR9jFkPW0jmPv4z00w4Hy9Dc7");
-
-    //     const body = {
-    //         products: menus
-    //     }
-    //     const headers = {
-    //         "Content-Type": "application/json"
-    //     }
-    //     const response = await fetch("http://localhost:5000/api/create-checkout-session", {
-    //         method: "POST",
-    //         headers: headers,
-    //         body: JSON.stringify(body)
-    //     });
-
-    //     const session = await response.json();
-
-    //     const result = stripe.redirectToCheckout({
-    //         sessionId: session.id
-    //     });
-
-    //     if (result.error) {
-    //         console.log(result.error);
-    //     }
-    // }
 
 
     return (

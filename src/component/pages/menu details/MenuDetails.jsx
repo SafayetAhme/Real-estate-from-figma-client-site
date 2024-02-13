@@ -18,6 +18,7 @@ import MenuAgentSection from './MenuAgentSection';
 import MenuSimilarSection from './MenuSimilarSection';
 import UseAuth from '../../hooks/useauth/UseAuth';
 import UseAxiosPublic from '../../hooks/useAxiospublic/UseAxiosPublic';
+import UseAddtolove from '../../hooks/use add to love/UseAddtolove';
 
 
 // videl section
@@ -40,13 +41,13 @@ let useClickOutside = (handler) => {
 };
 
 const MenuDetails = () => {
-    const [menus, refetch] = UseMenus();
+    const [menus] = UseMenus();
+    const [, refetch] = UseAddtolove();
     const { id } = useParams();
     const menu = menus.find(menu => menu._id === id);
     console.log(menu)
     const { user } = UseAuth();
     const axiosSecure = UseAxiosPublic();
-
 
     const [activeimg, setActiveImg] = useState(menu?.image?.[0])
 

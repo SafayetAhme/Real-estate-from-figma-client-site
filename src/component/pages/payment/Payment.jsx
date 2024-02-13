@@ -10,6 +10,7 @@ const Payment = () => {
 
     const item = useLocation();
     console.log(item);
+    
 
     return (
         <Elements stripe={stripePromise}>
