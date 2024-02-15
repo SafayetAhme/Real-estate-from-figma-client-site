@@ -15,17 +15,17 @@ const ProjectsDetails = () => {
         <div>
             <div className='container mx-auto py-12 gap-12 grid lg:grid-cols-2  items-start'>
                 <div className=''>
-                    <img className='w-full h-[640px] object-cover' src={project?.image?.[0]} alt="" />
-                    <img className='w-full h-[440px] pt-8 object-cover' src={project?.image?.[1]} alt="" />
-                    <img className='w-full h-[440px] pt-8 object-cover' src={project?.image?.[2]} alt="" />
+                    <img className='lg:w-full md:w-full sm:w-full w-[410px] h-[640px] object-cover' src={project?.image?.[0]} alt="" />
+                    <img className='lg:w-full md:w-full sm:w-full h-[440px] pt-8 object-cover' src={project?.image?.[1]} alt="" />
+                    <img className='lg:w-full md:w-full sm:w-full h-[440px] pt-8 object-cover' src={project?.image?.[2]} alt="" />
                 </div>
                 <div>
                     <h1 className="border w-fit font-poppins px-2 py-1">{project?.category}</h1>
-                    <h1 className="font-poppins text-5xl font-semibold w-[500px] pt-4 leading-[62px]">{project?.name}</h1>
-                    <p className="text-base leading-[27px] pt-6 font-poppins w-[500px]">{project?.title}</p>
+                    <h1 className="font-poppins text-5xl font-semibold lg:w-[500px] md:w-[500px] sm:w-[500px] w-[400px] pt-4 leading-[62px]">{project?.name}</h1>
+                    <p className="text-base leading-[27px] pt-6 font-poppins w-[400px] lg:w-[500px]">{project?.title}</p>
                     <p className="text-2xl font-semibold pt-6 font-poppins ">Project Details</p>
 
-                    <div className='mt-4 p-5' style={{ backgroundImage: `url(${footerbg})` }}>
+                    <div className='mt-4 lg:w-full w-[400px] p-5' style={{ backgroundImage: `url(${footerbg})` }}>
                         <div className='bg-white p-6'>
                             <div className='flex items-center justify-between'>
                                 <div className='flex items-center gap-3'>
@@ -70,7 +70,7 @@ const ProjectsDetails = () => {
                         </div>
                     </div>
 
-                    <p className="text-base leading-[27px] pt-8 font-poppins w-[560px]">{project?.details}</p>
+                    <p className="text-base leading-[27px] pt-8 font-poppins lg:w-[560px]">{project?.details}</p>
                     <div className='flex items-center gap-3 justify-start pt-8'>
                         <h1 className='font-poppins text-gray-400'>Share:</h1>
                         <a href={project?.agentfacebook}>

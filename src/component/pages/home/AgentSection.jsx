@@ -11,7 +11,7 @@ const AgentSection = () => {
 
     return (
         <div className='container pt-24 mx-auto'>
-            <div className="flex px-20 justify-between items-center">
+            <div className="flex lg:px-20 justify-between items-center">
                 <div className='text-[40px] font-bold font-poppins'>
                     <div class="font-poppins">Our Agents</div>
                     <img className='lg:w-44 md:w-40 w-0 ml-[80px] -mt-1' src={layot} alt="" />
@@ -27,13 +27,13 @@ const AgentSection = () => {
             </div>
 
             {/* card */}
-            <div className='px-16 pt-6'>
+            <div className='lg:px-16 pt-6'>
                 <div>
                     <div className="container  h-20 mx-auto" style={{ backgroundImage: `url(${bgagent})` }}>
                     </div>
                     {
                         agents?.length > 0 ? <div>
-                            <div className='grid p-4 -mt-20 gap-5 lg:grid-cols-4 items-cente'>
+                            <div className='grid p-4 -mt-20 gap-5 lg:grid-cols-4 justify-center md:grid-cols-2 items-cente'>
                                 {
                                     populer?.map(item =>
                                         <div key={item?.id} className=''>

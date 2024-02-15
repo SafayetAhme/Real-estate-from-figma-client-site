@@ -4,6 +4,7 @@ import { GoArrowUpRight } from "react-icons/go";
 import { Link } from "react-router-dom";
 import UseAxiosPublic from "../../hooks/useAxiospublic/UseAxiosPublic";
 import Swal from 'sweetalert2';
+import NotFount from "../../shared/not found page/NotFount";
 
 const AddLove = () => {
     const [addLove, refetch] = UseAddtolove();
@@ -34,39 +35,45 @@ const AddLove = () => {
             }
         });
     }
-    
+
     return (
-        <div className="mx-auto container">
+        <div className="h-screen">
             {
-                addLove?.map(item =>
-                    <div key={item.id} className="md:flex items-center py-8 border-t border-gray-200">
-                        <div className="w-[240px] lg:h-[200px] sm:h-[200px] md:h-[200px] h-[200px]">
-                            <Link>
-                                <img className='w-full rounded-xl h-full object-center object-cover' src={item?.image} alt />
-                            </Link>
-                        </div>
-                        <div className="md:pl-6 md:w-full">
-                            <div className="flex items-center justify-between mb-8">
-                                <div>
-                                    <p className="text-xl lg:w-full md:w-[500px] sm:w-[200px] lg:leading-[0px] md:leading-[0px] sm:leading-[0px] leading-[30px] font-poppins font-semibold pt-2">{item?.name}</p>
-                                    <p className="text-lg  text-gray-600 py-4">{item?.title}</p>
+                addLove?.length > 0 ? <div>
+                    <div className="mx-auto h-screen container">
+                        {
+                            addLove?.map(item =>
+                                <div key={item.id} className="lg:flex items-center py-8 border-t border-gray-200">
+                                    <div className="w-[240px] lg:h-[200px] sm:h-[200px] md:h-[200px] h-[200px]">
+                                        <Link>
+                                            <img className='w-full rounded-xl h-full object-center object-cover' src={item?.image} alt />
+                                        </Link>
+                                    </div>
+                                    <div className="md:pl-6 md:w-full">
+                                        <div className="flex items-center justify-between mb-8">
+                                            <div>
+                                                <p className="text-xl lg:w-full md:w-[500px] sm:w-[200px] lg:leading-[0px] md:leading-[0px] sm:leading-[0px] leading-[30px] font-poppins font-semibold pt-2">{item?.name}</p>
+                                                <p className="text-lg text-gray-600 py-4">{item?.title}</p>
+                                            </div>
+                                            <button onClick={() => handleDelete(item?._id)} className="font-poppins text-xl bg-gray-200 px-6 py-2 rounded-md hover:text-white hover:bg-black">Delete</button>
+                                        </div>
+                                        <div className="lg:flex items-center justify-between">
+                                            <p className="text-lg font-black leading-none text-gray-800">${item?.price}</p>
+                                            <div className="">
+                                                <Link state={item} disabled to="/payment">
+                                                    <button className="flex lg:pt-0 md:pt-0 sm:pt-0 mt-4 rounded-[10px] border-2 border-dashed border-black bg-[#FF6725] lg:px-4 md:px-4 sm:px-4 px-2 py-[9px] font-semibold gap-1 text-white transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
+                                                        <p className="font-medium text-base">Rent Now</p>
+                                                        <GoArrowUpRight className="text-2xl " />
+                                                    </button>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button onClick={() => handleDelete(item?._id)} className="font-poppins text-xl bg-gray-200 px-6 py-2 rounded-md hover:text-white hover:bg-black">Delete</button>
-                            </div>
-                            <div className="flex items-center justify-between">
-                                <p className="text-lg font-black leading-none text-gray-800">${item?.price}</p>
-                                <div className="">
-                                    <Link state={item} disabled to="/payment">
-                                        <button className="flex rounded-[10px] border-2 border-dashed border-black bg-[#FF6725] lg:px-4 md:px-4 sm:px-4 px-2 py-[9px] font-semibold gap-1 text-white transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
-                                            <p className="font-medium text-base">Rent Now</p>
-                                            <GoArrowUpRight className="text-2xl " />
-                                        </button>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
+                            )
+                        }
                     </div>
-                )
+                </div> : <NotFount></NotFount>
             }
         </div>
     );

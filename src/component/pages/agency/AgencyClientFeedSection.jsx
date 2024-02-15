@@ -10,14 +10,14 @@ import fbforth from '../../../../public/image/fbforth.png'
 const AgencyClientFeedSection = () => {
     return (
         <div className='bg-[#F5EDE8]'>
-            <div className='text-center lg:w-[1042px] mx-auto lg:pt-[101px] md:pt-[70px] sm:pt-[50px]'>
+            <div className='text-center lg:w-[1042px] mx-auto lg:pt-[101px] md:pt-[70px] sm:pt-[50px] pt-10'>
                 <div class="lg:text-[46px] font-poppins sm:text-[46px] md:text-[56px] text-[46px] lg:font-bold md:font-bold sm:font-bold  font-bold  text-center lg:leading-[68px] sm:leading-[60px] leading-[60px] ">Client Feedback</div>
                 <img className='lg:w-60 md:w-60 w-0 ml-[474px] -mt-0' src={layot} alt="" />
                 <p className='lg:text-[20px] font-poppins md:text-[18px] sm:text-[22px] text-[18px] pt-[10px] pb-[57px]'>Client satisfaction speaks louder than our words. Hear from them.</p>
             </div>
 
             {/* feedback card*/}
-            <div className='w-[1000px] mx-auto'>
+            <div className='lg:w-[1000px] mx-auto'>
                 <div className="carousel gap-5 w-full">
                     <div id="item1" className="carousel-item w-[480px] h-[300px]">
                         <div className='w-full  p-7 bg-white rounded-xl'>

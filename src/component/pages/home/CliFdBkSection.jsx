@@ -11,7 +11,7 @@ const CliFdBkSection = () => {
                     <h1 className='font-medium text-gray-500'>Milan, ltlay</h1>
                 </div>
                 <div>
-                    <h1 className='text-[26px] text-center font-poppins'>Efficient, knowledgeable, & made our home <br /> search a smooth experience. Highly <br /> recommended agency!</h1>
+                    <h1 className='lg:text-[26px] md:text-[20px] lg:py-0 py-2 text-center font-poppins'>Efficient, knowledgeable, & made our home <br /> search a smooth experience. Highly <br /> recommended agency!</h1>
                 </div>
                 <div className='text-center'>
                     <h1 className='text-xl font-medium pt-1'>Trustpilot</h1>

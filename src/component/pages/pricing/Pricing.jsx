@@ -13,11 +13,11 @@ const Pricing = () => {
             <PricingHero></PricingHero>
 
             {/* Pricing section */}
-            <div className='px-14 pt-16'>
+            <div className='lg:px-14 pt-16'>
                 <div className='container mx-auto'>
-                    <div className='flex items-center pb-12 justify-between'>
+                    <div className='lg:flex items-center pb-12 justify-between'>
                         <h1 className='font-poppins text-5xl font-semibold leading-[56px]'>No hidden charge, <br /> get your plan.</h1>
-                        <p className='font-poppins text-gray-600'>Try Free plan features for 14 days · No credit <br /> card required for exploration.</p>
+                        <p className='font-poppins pt-6 text-gray-600'>Try Free plan features for 14 days · No credit <br /> card required for exploration.</p>
                     </div>
 
                     {/* price 3 card */}
@@ -33,7 +33,7 @@ const Pricing = () => {
 
 const Card = () => {
     return (
-        <div className='flex items-center gap-7'>
+        <div className='lg:flex items-center gap-7'>
             <motion.div
                 whileHover="hover"
                 transition={{
@@ -45,7 +45,7 @@ const Card = () => {
                         scale: 1.05,
                     },
                 }}
-                className="relative h-[440px] w-[336px] shrink-0 overflow-hidden rounded-xl hover:bg-gray-100 border border-black p-6"
+                className="relative h-[440px] w-[336px] shrink-0 overflow-hidden rounded-xl hover:bg-gray-100 border border-black p-6 mb-8"
             >
                 <div className="relative z-10 text-white">
                     <div className='hover:text-white'>
@@ -102,7 +102,7 @@ const Card = () => {
                         scale: 1.05,
                     },
                 }}
-                className="relative h-[440px] w-[336px] shrink-0 overflow-hidden rounded-xl hover:bg-gray-100 border border-black p-6"
+                className="relative h-[440px] w-[336px] shrink-0 overflow-hidden rounded-xl hover:bg-gray-100 border border-black p-6 mb-8"
             >
                 <div className="relative z-10 text-white">
                     <div className='hover:text-white'>
@@ -159,7 +159,7 @@ const Card = () => {
                         scale: 1.05,
                     },
                 }}
-                className="relative h-[440px] w-[336px] shrink-0 overflow-hidden rounded-xl hover:bg-gray-100 border border-black p-6"
+                className="relative h-[440px] w-[336px] shrink-0 overflow-hidden rounded-xl hover:bg-gray-100 border border-black p-6 mb-8"
             >
                 <div className="relative z-10 text-white">
                     <div className='hover:text-white'>

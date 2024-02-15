@@ -8,7 +8,7 @@ import { GoArrowUpRight } from 'react-icons/go'
 
 const Secure = () => {
     return (
-        <div className='grid px-10 gap-8 lg:grid-cols-5'>
+        <div className='grid px-10 gap-8 lg:grid-cols-5 container mx-auto'>
             <div className='col-span-3 p-10 bg-[#FFEEE7] rounded-xl'>
                 <h1 className='text-5xl font-bold leading-[64px] font-poppins'>Secure your family's <br /> dream home.</h1>
                 <div className='flex justify-between -mt-[42px] items-center'>

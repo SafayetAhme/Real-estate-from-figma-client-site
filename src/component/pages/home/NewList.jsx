@@ -33,10 +33,10 @@ const NewList = () => {
                 {
                     menus?.length > 0 ? <div>
                         <div>
-                            <div className='pt-12 grid lg:grid-cols-3 gap-5'>
+                            <div className='pt-12 grid lg:grid-cols-3 mx-auto md:grid-cols-2 gap-5'>
                                 {
                                     Apartment?.map(item =>
-                                        <div key={item?.id} className="relative flex w-full max-w-[23rem] flex-col rounded-2xl bg-white bg-clip-border text-gray-700 shadow-lg">
+                                        <div key={item?.id} className="relative flex w-full mx-auto max-w-[23rem] flex-col rounded-2xl bg-white bg-clip-border text-gray-700 shadow-lg">
                                             <div
                                                 className="relative mx-3 mt-3 overflow-hidden text-white shadow-xl rounded-lg bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
                                                 <img

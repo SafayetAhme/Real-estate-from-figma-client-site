@@ -18,7 +18,7 @@ const FAQ = () => {
 
             {/* main section */}
             <div className="grid lg:grid-cols-3 pt-10 container mx-auto">
-                <div className='col-span-1 pr-14 h-fit p-4'>
+                <div className='col-span-1 lg:pr-14 h-fit p-4'>
                     <div className='p-5' style={{ backgroundImage: `url(${probg})` }}>
                         {/* category */}
                         <div className='p-4 bg-white rounded-xl'>

@@ -40,7 +40,7 @@ const Blog = () => {
                                                     return item;
                                                 }
                                             }).map(item =>
-                                                <div key={item?.id} className='relative w-[750px]'>
+                                                <div key={item?.id} className='relative lg:w-[750px]'>
                                                     <img className='w-full h-[480px] object-cover object-center' src={item?.imageone} alt="" />
                                                     <h1 className='absolute top-0 left-0 bg-black px-4 py-1 text-white m-4'>{item?.date}</h1>
                                                     <div className='flex items-center pt-4 gap-2'>
@@ -71,7 +71,7 @@ const Blog = () => {
                                                     return item;
                                                 }
                                             }).map(item =>
-                                                <div key={item?.id} className='relative w-[750px]'>
+                                                <div key={item?.id} className='relative lg:w-[750px]'>
                                                     <img className='w-full h-[480px] object-cover object-center' src={item?.imageone} alt="" />
                                                     <h1 className='absolute top-0 left-0 bg-black px-4 py-1 text-white m-4'>{item?.date}</h1>
                                                     <div className='flex items-center pt-4 gap-2'>

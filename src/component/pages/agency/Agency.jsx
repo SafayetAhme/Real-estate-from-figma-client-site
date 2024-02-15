@@ -50,7 +50,7 @@ const Agency = () => {
 
             {/* Secure section section */}
             <div className='container mx-auto pt-20'>
-                <div className="grid lg:grid-cols-2 gap-4 px-12">
+                <div className="grid lg:grid-cols-2 gap-4 lg:px-12">
                     <div>
                         <h1 className='font-poppins text-sm pb-1 text-gray-400'>ABOUT US</h1>
                         <h1 className="text-[44px] font-semibold leading-[58px] pb-6 font-poppins" >Secure your family's Dream home.</h1>
@@ -94,13 +94,13 @@ const Agency = () => {
                     <img className='lg:w-60 md:w-60 w-0 ml-[524px] -mt-0' src={layot} alt="" />
                     <p className='lg:text-[20px] font-poppins md:text-[18px] sm:text-[22px] text-[18px] pt-[16px] pb-[57px]'>It’s easy to start with us with these simple steps</p>
                 </div>
-                <div className='flex w-[1000px] mx-auto items-center'>
+                <div className='grid lg:grid-cols-3 mx-auto items-center'>
                     <div className='text-center mx-auto'>
                         <img className='w-[160px] mx-auto' src={profile} alt="" />
                         <p className='text-lg font-bold pt-7'>Create Account</p>
                         <h1 className=' font-poppins text-base pt-2 leading-[25px] text-gray-600'>It’s very easy to open an account <br /> and start your journey.</h1>
                     </div>
-                    <div className='text-center mx-auto'>
+                    <div className='text-center mx-auto py-8'>
                         <img className='w-[160px] mx-auto' src={imgown} alt="" />
                         <p className='text-lg font-bold pt-7'>Find Home</p>
                         <h1 className=' font-poppins text-base pt-2 leading-[25px] text-gray-600'>Complete your profile with all the info <br /> to get attention of client.</h1>
@@ -115,15 +115,15 @@ const Agency = () => {
 
             {/*client Feedback section */}
             <AgencyClientFeedSection></AgencyClientFeedSection>
-
+            
             {/* Our agents section */}
             <AgentSection></AgentSection>
-
+            
             {/* company section */}
             <div className='pt-20'>
                 <h1 className='text-xl font-poppins pb-4 text-center'>100+ Company trusted by us.</h1>
                 <div className='container mx-auto'>
-                    <div className='lg:flex justify-center gap-[92px] items-center'>
+                    <div className='grid lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 justify-center lg:gap-[92px] md:gap-[92px] sm:gap-[92px] gap-[22px] items-center'>
                         <img className='w-[94px]' src={slack} alt="" />
                         <img className='w-[94px]' src={google} alt="" />
                         <img className='w-[124px] pb-3' src={payoneet} alt="" />

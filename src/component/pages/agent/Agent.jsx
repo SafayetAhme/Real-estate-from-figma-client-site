@@ -32,7 +32,7 @@ const Agent = () => {
                 {/* Our agents */}
                 {
                     agents?.length > 0 ? <div>
-                        <div className='grid gap-5 pt-6 lg:grid-cols-4 items-cente'>
+                        <div className='grid gap-5 pt-6 lg:grid-cols-4 md:grid-cols-2 justify-center items-cente'>
                             {
                                 agents?.map(item =>
                                     <div key={item?.id} className=" relative text-center">

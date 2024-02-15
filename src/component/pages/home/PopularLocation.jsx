@@ -71,16 +71,16 @@ const PopularLocation = () => {
         <div className='container mx-auto'>
             <div className='text-center lg:w-[1042px] mx-auto lg:pt-[70px] md:pt-[50px] sm:pt-[30px]'>
                 <div class="lg:text-[50px] sm:text-[42px] md:text-[36px] text-[46px] lg:font-medium md:font-bold sm:font-bold  font-bold  text-center lg:leading-[80px] sm:leading-[60px] leading-[60px] ">Explore Popular Location</div>
-                <img className='lg:w-60 md:w-60 w-0 ml-[594px] -mt-4' src={layot} alt="" />
-                <p className='lg:text-[20px] md:text-[16px] sm:text-[14px] text-[12px] pt-[10px] pb-[57px]'>Explore the latest listings & projects in diverse areas</p>
+                <img className='lg:w-60 md:w-60 w-0 lg:ml-[594px] md:ml-[384px] -mt-1' src={layot} alt="" />
+                <p className='lg:text-[20px] md:text-[16px] sm:text-[14px] text-[16px] pt-[10px] pb-[57px]'>Explore the latest listings & projects in diverse areas</p>
             </div>
 
             {/*  */}
-            <div className='grid pb-12 lg:grid-cols-1 px-12'>
+            <div className='grid pb-12 lg:grid-cols-1 lg:px-12 md:px-12 sm:px-12'>
                 <Carousel responsive={responsive}>
                     {
                         card.map((d) => (
-                            <div class="relative grid h-[20rem] w-full max-w-[15.80rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
+                            <div class="relative grid h-[20rem] lg:gap-0 sm:gap-0 md:gap-0 gap-4 w-full max-w-[15.80rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
                                 <Link to="/Property">
                                     <div
                                         class="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent  bg-cover bg-clip-border bg-center text-gray-700 shadow-none" style={{ backgroundImage: `url(${d.image})` }}>

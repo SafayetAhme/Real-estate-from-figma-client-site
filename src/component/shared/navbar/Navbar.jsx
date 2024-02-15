@@ -29,7 +29,7 @@ const Navbar = () => {
 
 
     return (
-        <div>
+        <div className=''>
             <IconContext.Provider value={{ color: "#000" }}>
                 <nav className="navbar">
                     <div className="navbar-container container mx-auto">

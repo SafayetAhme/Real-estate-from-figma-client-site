@@ -18,8 +18,8 @@ const DashboardHome = () => {
 
 
     return (
-        <div className='pl-[108px] pr-10 pt-8'>
-            <div className='bg-white rounded-2xl px-9 py-5 flex  items-center '>
+        <div className='pl-[108px] container mx-auto pr-10 pt-8'>
+            <div className='bg-white rounded-2xl px-9 py-5 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-2  items-center '>
                 <div className='flex items-center'>
                     <div>
                         <h1 className='font-poppins text-[#8e8e8e] font-light'>All Properties</h1>
@@ -36,7 +36,7 @@ const DashboardHome = () => {
                     <img className='w-[75px] mx-8' src={user} alt="" />
                     <img className='w-[30px] mr-4' src={element} alt="" />
                 </div>
-                <div className='flex items-center'>
+                <div className='flex lg:pt-0 md:pt-0 sm:pt-0 mt-7  items-center'>
                     <div>
                         <h1 className='font-poppins text-[#8e8e8e] font-light'>Total Sell</h1>
                         <h1 className='font-poppins text-black text-4xl font-semibold pt-1'>{allPrices?.length}</h1>
@@ -44,7 +44,7 @@ const DashboardHome = () => {
                     <img className='w-[75px] mx-8' src={ei} alt="" />
                     <img className='w-[30px] mr-4' src={element} alt="" />
                 </div>
-                <div className='flex items-center'>
+                <div className='flex lg:pt-0 md:pt-0 sm:pt-0 mt-7 items-center'>
                     <div className=''>
                         <h1 className='font-poppins text-[#8e8e8e] font-light'>Total Favourites</h1>
                         <h1 className='font-poppins text-black text-4xl font-semibold pt-1'>{addlove?.length}</h1>

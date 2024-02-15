@@ -149,11 +149,11 @@ const Dashboard = () => {
                         </ul>
                     </nav>
                 </IconContext.Provider>
-                <div className='flex justify-between px-10 w-full items-center'>
+                <div className='lg:flex justify-between px-10 w-full items-center'>
                     <div>
                         <h1 className='font-poppins text-2xl font-semibold '>Dashboard</h1>
                     </div>
-                    <div className='flex items-center gap-3'>
+                    <div className='lg:flex lg:pt-0 sm:pt-0 md:pt-0 pt-2 items-center gap-3'>
                         <form class="flex items-center">
                             <div class="relative w-full">
                                 <input type="text" id="search" class=" border-[1px] border-black rounded-full  block w-[300px] ps-3 p-2.5" placeholder="Search" required />
@@ -162,7 +162,7 @@ const Dashboard = () => {
                                 </button>
                             </div>
                         </form>
-                        <div className='border p-3 w-fit rounded-full'>
+                        <div className='border  lg:pt-0 sm:pt-0 md:pt-0 my-4 p-3 w-fit rounded-full'>
                             <IoMdNotificationsOutline className='text-2xl' />
                         </div>
                         <div className="">
@@ -171,7 +171,7 @@ const Dashboard = () => {
                                 <GoArrowUpRight className="text-2xl " />
                             </button>
                         </div>
-                        <div className='rounded-full'>
+                        <div className='rounded-full lg:pt-0 sm:pt-0 md:pt-0 my-4'>
                             <img className='w-[46px] h-[46px] rounded-full' src="https://media.istockphoto.com/id/1373240842/photo/smiling-mid-adult-man-in-polo-shirt.jpg?s=612x612&w=0&k=20&c=loXTzsejma2wpvYqRQnGABUStfMI241vbhVO-4eJKO0=" alt="" />
                         </div>
                     </div>

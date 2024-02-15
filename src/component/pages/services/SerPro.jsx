@@ -14,6 +14,7 @@ import img from '../../../../public/image/img.png'
 import bgbed from '../../../../public/image/bgbed.png'
 import imgfind from '../../../../public/image/imgfind.png'
 import ex from '../../../../public/image/ex.png'
+import StyJurny from "../../shared/start your jurny/StyJurny";
 
 
 const SerPro = () => {
@@ -79,7 +80,7 @@ const SerPro = () => {
                         <p className='text-lg py-3 text-gray-500'>Buy a home</p>
                         <h1 className=' text-lg font-medium'>Explore homy’s 2 million+ <br /> homes and uncover your ideal <br /> living space.</h1>
                     </div>
-                    <div className='text-center'>
+                    <div className='text-center my-8'>
                         <img className='mx-auto w-[160px]' src={two} alt="" />
                         <p className='text-lg py-3 text-gray-500'>Rent a home</p>
                         <h1 className=' text-lg font-medium'>Discover a rental you'll love on <br /> homy, thanks to 35+ filters and <br /> tailored keywords.</h1>
@@ -93,9 +94,9 @@ const SerPro = () => {
 
                 {/* core service section */}
                 <div className="w-full h-full" style={{ backgroundImage: `url(${corebg})` }}>
-                    <div className='text-center  mx-auto lg:pt-[70px] md:pt-[50px] sm:pt-[30px]'>
+                    <div className='text-center  mx-auto lg:pt-[70px] md:pt-[50px] sm:pt-[30px] pt-12'>
                         <div class="lg:text-[56px] sm:text-[46px] md:text-[56px] text-[46px] lg:font-medium md:font-bold sm:font-bold  font-bold  text-center lg:leading-[80px] sm:leading-[60px] leading-[60px] ">Core Services</div>
-                        <img className='w-[220px] ml-[594px] -mt-3' src={layot} alt="" />
+                        <img className='w-[220px] lg:ml-[594px] md:ml-[394px] sm:ml-[294px] ml-[194px] -mt-3' src={layot} alt="" />
                         <p className='lg:text-[20px] md:text-[20px] sm:text-[20px] text-[18px] pt-[6px] pb-[57px]'>Over 745K listings of apartments, lots, plots - available today.</p>
                     </div>
                     <div>
@@ -151,7 +152,7 @@ const SerPro = () => {
                 </div>
 
                 {/* Apply section */}
-                <div className=" overflow-y-scroll bg-cover bg-fixed  " style={{ backgroundImage: `url(${bgbed})` }}>
+                <div className=" overflow-y-scroll bg-cover bg-fixed p-9 " style={{ backgroundImage: `url(${bgbed})` }}>
                     <div className="container mx-auto">
                         <div className='text-center  mx-auto lg:py-[70px] md:py-[50px] sm:pt-[30px]'>
                             <div class="lg:text-[62px] sm:text-[46px] md:text-[56px] text-[46px] lg:font-medium md:font-bold sm:font-bold  font-bold  text-center lg:leading-[74px] sm:leading-[50px] leading-[50px] text-white">Apply for loan with <br /> low interest.</div>
@@ -177,7 +178,7 @@ const SerPro = () => {
                             <h1 className='font-medium text-gray-500'>Milan, ltlay</h1>
                         </div>
                         <div>
-                            <h1 className='text-[24px] text-center font-poppins'>Efficient, knowledgeable, & made our home <br /> search a smooth experience. Highly <br /> recommended agency!</h1>
+                            <h1 className='lg:text-[24px] py-4 text-center font-poppins'>Efficient, knowledgeable, & made our home <br /> search a smooth experience. Highly <br /> recommended agency!</h1>
                         </div>
                         <div className='text-center'>
                             <h1 className='text-xl font-medium pt-1'>Trustpilot</h1>
@@ -195,9 +196,9 @@ const SerPro = () => {
                 </div>
 
                 {/* Find your section */}
-                <div className="container mx-auto grid pt-[90px] lg:grid-cols-2 items-center justify-between gap-14">
-                    <img src={imgfind} alt="" />
-                    <div>
+                <div className="container mx-auto grid pt-[90px] lg:grid-cols-2 items-center justify-between lg:gap-14">
+                    <img className="lg:pr-0 md:pr-0 sm:pr-0 pr-12" src={imgfind} alt="" />
+                    <div className="">
                         <h1 className="text-5xl font-semibold leading-[58px] pb-6 font-poppins" >Find Your Perfect Match Easily.</h1>
                         <p className="text-lg pb-8 font-normal text-gray-600 font-poppins leading-[30px]">Browse 745,000+ homes for purchase, rent, and <br /> mortgage options in our listings.</p>
 
@@ -226,23 +227,7 @@ const SerPro = () => {
                 </div>
 
                 {/* Start */}
-                <div className='mt-24 mb-12 mx-auto overflow-y-scroll px-24 bg-cover bg-fixed bg-center bg-no-repeat ' style={{ backgroundImage: `url(${ex})` }}>
-                    <div className='lg:flex container mx-auto justify-between items-center'>
-                        <div className=' pt-14 pb-28'>
-                            <div class="font-poppins text-white pt-2 leading-[64px] text-5xl">Start your Journey <br /> As a Realtor.</div>
-                            <img className='lg:w-44 md:w-40 w-0 ml-[256px] -mt-16' src={layot} alt="" />
-                        </div>
-                        <form className=''>
-                            <form>
-                                <div class="relative w-[380px]">
-                                    <input type="search" id="search" class="block w-full outline-none p-4 text-sm text-black border rounded-lg bg-gray-50" placeholder="Email Address..." required />
-                                    <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-[#FF6625] font-medium rounded-lg text-sm px-4 py-2 ">Get Started</button>
-                                </div>
-                            </form>
-                            <p className='text-white pt-1'>Already a Agent? <span className='text-[#FF6625] underline font-medium'> Sign in.</span> </p>
-                        </form>
-                    </div>
-                </div>
+               <StyJurny></StyJurny>
             </div>
         </div>
     )

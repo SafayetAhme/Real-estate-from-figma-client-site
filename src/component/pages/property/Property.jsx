@@ -294,58 +294,26 @@ const Property = () => {
                                 <button onClick={() => filtersqf("Max")} className='border-[1px] py-2 w-full border-black rounded-lg text-center font-medium'>MAX</button >
                             </div>
                         </div>
-
-                        {/* search button */}
-                        {/* <div className='px-6'>
-                            <button className='bg-[#FF6725] w-full gap-2 py-3 rounded-lg text-white justify-center mb-6 px-6 flex items-center'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M17.5 17.5L22 22" stroke="#ffffff" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
-                                    <path d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z" stroke="#ffffff" strokeWidth="1.5" strokeLinejoin="round" />
-                                </svg>
-                                <h1 className='font-poppins text-xl font-medium'>SEARCH</h1>
-                            </button>
-                        </div> */}
-
-                        {/* last 2 option */}
-                        {/* <div className='flex justify-between'>
-                            <div className=' w-full gap-2 text-black justify-center mb-6 flex items-center'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M20.9843 5C21.0344 4.28926 20.9732 3.83888 20.672 3.5074C20.2111 3 19.396 3 17.7657 3H6.23433C4.60404 3 3.7889 3 3.32795 3.5074C2.86701 4.0148 2.96811 4.8008 3.17033 6.3728C3.22938 6.8319 3.3276 7.09253 3.62734 7.44867C4.59564 8.59915 6.36901 10.6456 8.85746 12.5061C9.08486 12.6761 9.23409 12.9539 9.25927 13.2614C9.53961 16.6864 9.79643 19.0261 9.93278 20.1778C10.0043 20.782 10.6741 21.2466 11.226 20.8563C12.1532 20.2006 13.8853 19.4657 14.1141 18.2442C14.1986 17.7934 14.3136 17.0803 14.445 16" stroke="#000000" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
-                                    <path d="M15.0132 6L14.5139 8.08437L15.3434 7.56607C15.9343 7.11729 16.6687 6.85119 17.4646 6.85119C19.4172 6.85119 21 8.45151 21 10.4256C21 12.3997 19.4172 14 17.4646 14C15.7543 14 14.3276 12.772 14 11.1405" stroke="#000000" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
-                                </svg>
-                                <h1 className='font-poppins text-base font-medium'>Reset Filter</h1>
-                            </div>
-                            <div className=' w-full gap-2 text-black justify-center mb-6 flex items-center'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M13.7276 3.44418L15.4874 6.99288C15.7274 7.48687 16.3673 7.9607 16.9073 8.05143L20.0969 8.58575C22.1367 8.92853 22.6167 10.4206 21.1468 11.8925L18.6671 14.3927C18.2471 14.8161 18.0172 15.6327 18.1471 16.2175L18.8571 19.3125C19.417 21.7623 18.1271 22.71 15.9774 21.4296L12.9877 19.6452C12.4478 19.3226 11.5579 19.3226 11.0079 19.6452L8.01827 21.4296C5.8785 22.71 4.57865 21.7522 5.13859 19.3125L5.84851 16.2175C5.97849 15.6327 5.74852 14.8161 5.32856 14.3927L2.84884 11.8925C1.389 10.4206 1.85895 8.92853 3.89872 8.58575L7.08837 8.05143C7.61831 7.9607 8.25824 7.48687 8.49821 6.99288L10.258 3.44418C11.2179 1.51861 12.7777 1.51861 13.7276 3.44418Z" stroke="#000000" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
-                                </svg>
-                                <h1 className='font-poppins text-base font-medium'>Save Search</h1>
-                            </div>
-                        </div> */}
                     </div>
                 </div>
-                <div className='col-span-2 pl-12'>
+                <div className='col-span-2 lg:pl-12'>
                     <div className='flex justify-between items-center'>
                         <h1 className='font-poppins'>Showing<span className='font-bold'>{menus?.length}</span></h1>
                         <div className='flex items-center gap-2'>
-                            <h1>Sort by:</h1>
-                            <div className='flex pt-2 items-center gap-2'>
-                                <button onClick={() => filtersqf("Min")} className='border-[1px] py-1 px-4 w-full border-black rounded-lg text-center font-medium'>Populer</button>
-                                <button onClick={() => filtersqf("Max")} className='border-[1px] py-1 px-4 w-full border-black rounded-lg text-center font-medium'>Normal</button >
-                            </div>
-                            <div className='flex items-center gap-2'>
-                                <select className="border-2 rounded-full pb-1 py-0 px-1">
-                                    <option>
-                                        <input onClick={() => filteramenities("Garden")} type="checkbox" name="radio-1" className="checkbox" />asdf
-                                    </option>
-                                    <option>Normal</option>
-                                </select>
-                                <div className="flex items-center gap-2">
-                                    <div>
-                                        <CgMenuGridR onClick={() => setHandelGrid(false)} className={`${!handelGrid ? 'p-1 text-4xl border bg-black text-white' : 'p-1 text-4xl border'}`} />
-                                    </div>
-                                    <div>
-                                        <IoMdMenu onClick={() => setHandelGrid(true)} className={`${!handelGrid ? 'p-1 text-4xl border ' : 'p-1 text-4xl border bg-black text-white'}`} />
+                            <div className='lg:flex lg:pt-0 md:pt-0 sm:pt-0 pt-8'>
+                                <h1 className='pt-3 pr-2'>Sort by:</h1>
+                                <div className='flex pt-2 items-center gap-2'>
+                                    <button onClick={() => filtersqf("Min")} className='border-[1px] py-1 px-4 w-full border-black rounded-lg text-center font-medium'>Populer</button>
+                                    <button onClick={() => filtersqf("Max")} className='border-[1px] py-1 px-4 w-full border-black rounded-lg text-center font-medium'>Normal</button >
+                                </div>
+                                <div className='flex pl-2 lg:pt-2 md:pt-0 sm:pt-0 pt-4 items-center gap-2'>
+                                    <div className="flex items-center gap-2">
+                                        <div>
+                                            <CgMenuGridR onClick={() => setHandelGrid(false)} className={`${!handelGrid ? 'p-1 text-4xl border bg-black text-white' : 'p-1 text-4xl border'}`} />
+                                        </div>
+                                        <div>
+                                            <IoMdMenu onClick={() => setHandelGrid(true)} className={`${!handelGrid ? 'p-1 text-4xl border ' : 'p-1 text-4xl border bg-black text-white'}`} />
+                                        </div>
                                     </div>
                                 </div>
                             </div>

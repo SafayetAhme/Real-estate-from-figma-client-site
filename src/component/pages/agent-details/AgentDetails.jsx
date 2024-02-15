@@ -172,7 +172,7 @@ const AgentDetails = () => {
 
                     <div className='col-span-1'>
                         {/* Schedule Tour */}
-                        <div className='ml-12 p-6' style={{ backgroundImage: `url(${bgprofile})` }}>
+                        <div className='lg:ml-12 lg:mr-12  lg:w-[350px] md:w-full sm:w-full w-[400px] p-6' style={{ backgroundImage: `url(${bgprofile})` }}>
                             <div className='bg-white rounded-xl p-4 justify-center'>
                                 <h1 className='font-poppins text-xl'>Contact Form</h1>
                                 <div className='pt-4'>

@@ -7,7 +7,7 @@ const ContactUs = () => {
                 <div class="lg:text-[42px] font-poppins sm:text-[36px] md:text-[46px] text-[36px] lg:font-bold md:font-bold sm:font-bold  font-bold  text-center lg:leading-[58px] sm:leading-[50px] leading-[50px]">Questions? Feel Free to Reach <br /> Out Via Message.</div>
 
                 {/* section */}
-                <div className='flex justify-center pt-10 pb-16 items-center'>
+                <div className='grid lg:grid-cols-5 justify-center pt-10 pb-16 items-center container mx-auto'>
                     <div className='flex items-center gap-3'>
                         <img className='w-[46px]' src={Qlocation} alt="" />
                         <div className='text-start'>
@@ -35,14 +35,14 @@ const ContactUs = () => {
             </div>
 
             {/* contact from */}
-            <div className='grid mx-auto gap-16 lg:grid-cols-2'>
+            <div className='grid mx-auto lg:px-0 md:px-0 sm:px-0 justify-center px-12 gap-16 lg:w-full md:w-full sm:w-full w-[200px] lg:grid-cols-2'>
                 <div class="relative w-full h-full">
                     <iframe class="absolute top-0 left-0 w-full h-full"
                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12080.73732861526!2d-74.0059418!3d40.7127847!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM40zMDA2JzEwLjAiTiA3NMKwMjUnMzcuNyJX!5e0!3m2!1sen!2sus!4v1648482801994!5m2!1sen!2sus"
                         frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0">
                     </iframe>
                 </div>
-                <div className=" w-[550px] py-12">
+                <div className=" lg:w-[550px] ms:w-[550px] md:w-[550px] w-[400px] py-12">
                     <h1 className="text-4xl font-bold pb-6 font-poppins">Send Message</h1>
                     <div className=" pb-4">
                         <h1 className='font-poppins pb-1'>name*</h1>
